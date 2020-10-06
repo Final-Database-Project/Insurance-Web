@@ -1,0 +1,21 @@
+{
+  "name": "finalbdproject",
+  "version": "1.0.0",
+  "description": "Final Project from DataBase",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Final-Database-Project/FinalBDProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Final-Database-Project/FinalBDProject/issues"
+  },
+  "homepage": "https://github.com/Final-Database-Project/FinalBDProject#readme"
+}

@@ -1,0 +1,3 @@
+-- INSERT INTO Usuario(idTipoUsuario, Correo, Contraseña, Nombre, Direccion, NumeroTelefonico, FechaRegistro) VALUES ((SELECT idTipoUsuario from TipoUsuario where idTipoUsuario = 1), 'leandro@hotmail.com', 'wtv', 'Leandro', 'Calle', 8092221111, GETDATE()) INSERT INTO UsuarioPersonal(idUsuario,Apellido, Cedula, FechaNacimiento) VALUES ((SELECT idUsuario FROM Usuario),'Toledano', 3131313, GETDATE() )
+
+ 
