@@ -1,4 +1,4 @@
-const Usuario = require("../modelos/modeloCliente");
+const Usuario = require("../modelos/modelo.Cliente");
 
 exports.crear = (req, res) => {
 	if (!req.params) {
