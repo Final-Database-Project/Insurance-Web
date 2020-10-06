@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Final Project from DataBase",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@hapi/hapi": "^20.0.1",
+    "express": "^4.17.1",
+    "mssql": "^6.2.3",
+    "tedious": "^9.2.1"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

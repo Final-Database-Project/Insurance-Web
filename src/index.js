@@ -1,31 +1,21 @@
-const { Connection, Request } = require("tedious");
+const sql = require("mssql");
 
 // Create connection to database
 const config = {
-  authentication: {
-    options: {
-      userName: "grupo9", // update me
-      password: "mesa9basededato." // update me
-    },
-    type: "default"
-  },
-  server: "finalprojectdb1.database.windows.net", // update me
-  options: {
-    database: "Final Project DB - 1", //update me
-    encrypt: true
-  }
+	user: "grupo9", // update me
+	password: "mesa9basededato.", // update me
+	server: "finalprojectdb1.database.windows.net", // update me
+	database: "FinalProjectDB-1", //update me
 };
 
-const connection = new Connection(config);
+const connection = new sql.ConnectionPool(config);
+
+connection.connect((err) => {
+	if (err) {
+		console.error(err.message);
+	} else {
+		console.log("Connected");
+	}
+});
 
 module.exports = connection;
-
-
-connection.on("connect", err => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log("Connected")
-    }
-  });
-

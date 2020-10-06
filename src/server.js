@@ -1,16 +1,22 @@
-"use strict";
+const express = require("express");
+const bodyParser = require("body-parser");
 
-const Hapi = require( "@hapi/hapi" );
-const routes = require("./routes");
+const app = express();
 
-const app = async config =>{
-    const { host, port } = config;
-    const server = Hapi.server( { host, port} );
+//parse requests of content-type: application/json
+app.use(bodyParser.json());
 
-    server.app.config = config;
+// parse requests of content-type: application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
-    await routes.register (server);
-    return server;
-}
+// simple route
+app.get("/", (req, res) => {
+	res.json({ message: "Bienvenido" });
+});
 
-module.exports = app;
+require("./routes/rutasUsuario")(app);
+
+// set port, listen for requests
+app.listen(3000, () => {
+	console.log("Server is running on port localhost:3000");
+});
