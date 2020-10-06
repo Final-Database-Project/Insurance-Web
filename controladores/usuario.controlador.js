@@ -22,7 +22,7 @@ exports.crear = (req, res) => {
 		if (err)
 			res.status(500).send({
 				messaage:
-					err.messaage ||
+					err.message ||
 					"Ha ocurrido un error al intentar crear al usuario",
 			});
 		else res.send(data);
@@ -34,9 +34,25 @@ exports.getAll = (req, res) => {
 		if (err)
 			res.status(500).send({
 				messaage:
-					err.messaage ||
+					err.message ||
 					"Ha ocurrido un error al intentar buscar todos los usuario",
 			});
 		else res.send(data);
 	});
 };
+
+exports.findById =(req, res) => {
+	Usuario.findById(req.params.idUsuario, (err, data) => {
+		if(err){
+			if (err.kind === "no encontrado"){
+				res.status(404).send({
+					message: "No se encontra al usuario con el id " + req.params.idUsuario
+				});
+			}else{
+				res.status(500).send({
+					message: "Error al intentar encontrar al cliente con el id" + req.params.idUsuario
+				});
+			}	
+		} else res.send(data);
+	})
+}

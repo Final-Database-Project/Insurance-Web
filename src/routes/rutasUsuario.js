@@ -4,4 +4,6 @@ module.exports = app => {
 	app.post("/usuarios", usuario.crear);
 
 	app.get("/usuarios", usuario.getAll);
+
+	app.get("/usuarios/:idUsuario", usuario.findById);
 };
