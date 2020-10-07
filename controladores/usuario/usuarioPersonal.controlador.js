@@ -28,31 +28,3 @@ exports.crear = (req, res) => {
 		else res.send(data);
 	});
 };
-
-exports.getAll = (req, res) => {
-	UsuarioPersonal.getAll((err, data) => {
-		if (err)
-			res.status(500).send({
-				messaage:
-					err.message ||
-					"Ha ocurrido un error al intentar buscar todos los usuarios empresariales",
-			});
-		else res.send(data);
-	});
-};
-
-exports.findById =(req, res) => {
-	UsuarioPersonal.findById(req.params.idUsuarioEmpresarial, (err, data) => {
-		if(err){
-			if (err.kind === "no encontrado"){
-				res.status(404).send({
-					message: "No se encontra al usuario empresarial con el id " + req.params.idUsuarioEmpresarial
-				});
-			}else{
-				res.status(500).send({
-					message: "Error al intentar encontrar al usuario empresarial con el id" + req.params.idUsuarioEmpresarial
-				});
-			}	
-		} else res.send(data);
-	})
-}
