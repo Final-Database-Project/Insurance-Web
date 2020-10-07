@@ -1,16 +1,17 @@
 const sql = require("../src/index");
 
-const Usuario = function Usuario(usuario) {
-	this.idTipoUsuario = usuario.idTipoUsuario;
-	this.Correo = usuario.Correo;
-	this.Contraseña = usuario.Contraseña;
-	this.Nombre = usuario.Nombre;
-	this.Direccion = usuario.Direccion;
-	this.NumeroTelefonico = usuario.NumeroTelefonico;
-	this.FechaRegistro = usuario.FechaRegistro;
+const UsuarioPersonal = function UsuarioPersonal(usuarioPersonal) {
+	this.Correo = usuarioPersonal.Correo;
+	this.Contraseña = usuarioPersonal.Contraseña;
+    this.Nombre = usuarioPersonal.Nombre;
+    this.Apellido = usuarioPersonal.Apellido;
+	this.Direccion = usuarioPersonal.Direccion;
+    this.NumeroTelefonico = usuarioPersonal.NumeroTelefonico;
+    this.Cedula = usuarioPersonal.Cedula;
+    this.FechaNacimiento = usuarioPersonal.FechaNacimiento;
 };
 
-Usuario.crear = (nuevousuario, result) => {
+UsuarioPersonal.crear = (nuevousuario, result) => {
 	const request = sql.request();
 	request.input("idTipoUsuario", nuevousuario.idTipoUsuario);
 	request.input("Correo", nuevousuario.Correo);
@@ -28,7 +29,7 @@ Usuario.crear = (nuevousuario, result) => {
 				return;
 			}
 			console.dir(res.recordset[0].idUsuario);
-			console.log("Usuario creado: ", {
+			console.log("UsuarioPersonal creado: ", {
 				idUsuario: res.recordset[0].idUsuario,
 				...nuevousuario,
 			});
@@ -40,8 +41,8 @@ Usuario.crear = (nuevousuario, result) => {
 	);
 };
 
-Usuario.getAll = (result) => {
-	sql.query("Select * from Usuario", (err, res) => {
+UsuarioPersonal.getAll = (result) => {
+	sql.query("Select * from UsuarioPersonal", (err, res) => {
 		if (err) {
 			console.log("error: ", err);
 			result(null, err);
@@ -53,11 +54,11 @@ Usuario.getAll = (result) => {
 	});
 };
 
-Usuario.findById = (idUsuario, result) => {
+UsuarioPersonal.findById = (idUsuario, result) => {
 	const request = sql.request();
 	request.input("idUsuario", idUsuario);
 	request.query(
-		"Select * From Usuario Where idUsuario = @idUsuario",
+		"Select * From UsuarioPersonal Where idUsuario = @idUsuario",
 		(err, res) => {
 			if (err) {
 				console.log("error: ", err);
@@ -66,7 +67,7 @@ Usuario.findById = (idUsuario, result) => {
 			}
 
 			if (res.rowsAffected != 0) {
-				console.log("Usuario encontrado: ", res.recordset);
+				console.log("UsuarioPersonal encontrado: ", res.recordset);
 				result(null, res.recordset);
 				return;
 			}
@@ -76,4 +77,4 @@ Usuario.findById = (idUsuario, result) => {
 	);
 };
 
-module.exports = Usuario;
+module.exports = UsuarioPersonal;

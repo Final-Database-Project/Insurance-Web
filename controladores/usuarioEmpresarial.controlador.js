@@ -1,4 +1,4 @@
-const Usuario = require("../modelos/modelo.Cliente");
+const UsuarioEmpresarial = require("../modelos/modelo.UsuarioEmpresarial");
 
 exports.crear = (req, res) => {
 	if (!req.params) {
@@ -7,50 +7,48 @@ exports.crear = (req, res) => {
 		});
 	}
 
-	const usuario = new Usuario({
-		idUsuario: req.body.idUsuario,
-		idTipoUsuario: req.query.idTipoUsuario,
+	const usuarioEmpresarial = new UsuarioEmpresarial({
 		Correo: req.query.Correo,
 		Contraseña: req.query.Contraseña,
 		Nombre: req.query.Nombre,
 		Direccion: req.query.Direccion,
 		NumeroTelefonico: req.query.NumeroTelefonico,
-		FechaRegistro: req.body.FechaRegistro,
+		RNC: req.query.RNC,
 	});
 
-	Usuario.crear(usuario, (err, data) => {
+	UsuarioEmpresarial.crear(usuarioEmpresarial, (err, data) => {
 		if (err)
 			res.status(500).send({
 				messaage:
 					err.message ||
-					"Ha ocurrido un error al intentar crear al usuario",
+					"Ha ocurrido un error al intentar crear al usuario empresarial",
 			});
 		else res.send(data);
 	});
 };
 
 exports.getAll = (req, res) => {
-	Usuario.getAll((err, data) => {
+	UsuarioEmpresarial.getAll((err, data) => {
 		if (err)
 			res.status(500).send({
 				messaage:
 					err.message ||
-					"Ha ocurrido un error al intentar buscar todos los usuario",
+					"Ha ocurrido un error al intentar buscar todos los usuarios empresariales",
 			});
 		else res.send(data);
 	});
 };
 
 exports.findById =(req, res) => {
-	Usuario.findById(req.params.idUsuario, (err, data) => {
+	UsuarioEmpresarial.findById(req.params.idUsuarioEmpresarial, (err, data) => {
 		if(err){
 			if (err.kind === "no encontrado"){
 				res.status(404).send({
-					message: "No se encontra al usuario con el id " + req.params.idUsuario
+					message: "No se encontra al usuario empresarial con el id " + req.params.idUsuarioEmpresarial
 				});
 			}else{
 				res.status(500).send({
-					message: "Error al intentar encontrar al cliente con el id" + req.params.idUsuario
+					message: "Error al intentar encontrar al usuario empresarial con el id" + req.params.idUsuarioEmpresarial
 				});
 			}	
 		} else res.send(data);
