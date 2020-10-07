@@ -27,19 +27,18 @@ UsuarioEmpresarial.crear = (nuevousuario, result) => {
 			"SELECT IDENT_CURRENT('Usuario') As idUsuario; SELECT IDENT_CURRENT('UsuarioEmpresarial') As idUsuarioEmpresarial",
 			(error, resp) => {
 				if (err) {
-					console.log("error: ", err);
-					result(err, null);
+					console.log("error: ", error);
+					result(error, null);
 					return;
 				}
 				console.log("UsuarioEmpresarial creado: ", {
-					idUsuario: resp.recordsets[0][0].idUsuario,
 					...nuevousuario,
-					idUsuarioEmpresarial: resp.recordsets[1][0].idUsuarioEmpresarial,
 				});
 				result(null, {
 					idUsuario: resp.recordsets[0][0].idUsuario,
 					...nuevousuario,
-					idUsuarioEmpresarial: resp.recordsets[1][0].idUsuarioEmpresarial,
+					idUsuarioEmpresarial:
+						resp.recordsets[1][0].idUsuarioEmpresarial,
 				});
 			}
 		);
@@ -47,16 +46,19 @@ UsuarioEmpresarial.crear = (nuevousuario, result) => {
 };
 
 UsuarioEmpresarial.getAll = (result) => {
-	sql.query("Select U.*, idUsuarioEmpresarial, RNC from UsuarioEmpresarial UE Inner Join Usuario U on UE.idUsuario = U.idUsuario ", (err, res) => {
-		if (err) {
-			console.log("error: ", err);
-			result(null, err);
-			return;
-		}
+	sql.query(
+		"Select U.*, idUsuarioEmpresarial, RNC from UsuarioEmpresarial UE Inner Join Usuario U on UE.idUsuario = U.idUsuario ",
+		(err, res) => {
+			if (err) {
+				console.log("error: ", err);
+				result(null, err);
+				return;
+			}
 
-		console.log("usuarios: ", res.recordsets);
-		result(null, res.recordsets);
-	});
+			console.log("usuarios: ", res.recordsets);
+			result(null, res.recordsets);
+		}
+	);
 };
 
 UsuarioEmpresarial.findById = (idUsuarioEmpresarial, result) => {
