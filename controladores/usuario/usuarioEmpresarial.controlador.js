@@ -1,4 +1,4 @@
-const UsuarioEmpresarial = require("../modelos/modelo.UsuarioEmpresarial");
+const UsuarioEmpresarial = require("../../modelos/usuarios/modelo.UsuarioEmpresarial");
 
 exports.crear = (req, res) => {
 	if (!req.params) {

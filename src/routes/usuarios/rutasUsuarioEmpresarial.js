@@ -1,5 +1,5 @@
 module.exports = app => {
-	const usuarioEmpresarial = require("../../controladores/usuarioEmpresarial.controlador");
+	const usuarioEmpresarial = require("../../../controladores/usuario/usuarioEmpresarial.controlador");
 
 	app.post("/usuarioEmpresarial", usuarioEmpresarial.crear);
 
