@@ -1,12 +1,12 @@
 const sql = require("../../src/index");
 
 const UsuarioEmpresarial = function UsuarioEmpresarial(usuarioEmpresarial) {
-	this.Correo = usuarioEmpresarial.Correo;
-	this.Contraseña = usuarioEmpresarial.Contraseña;
-	this.Nombre = usuarioEmpresarial.Nombre;
-	this.Direccion = usuarioEmpresarial.Direccion;
-	this.NumeroTelefonico = usuarioEmpresarial.NumeroTelefonico;
-	this.RNC = usuarioEmpresarial.RNC;
+  this.Correo = usuarioEmpresarial.Correo;
+  this.Contraseña = usuarioEmpresarial.Contraseña;
+  this.Nombre = usuarioEmpresarial.Nombre;
+  this.Direccion = usuarioEmpresarial.Direccion;
+  this.NumeroTelefonico = usuarioEmpresarial.NumeroTelefonico;
+  this.RNC = usuarioEmpresarial.RNC;
 };
 
 UsuarioEmpresarial.crear = (nuevousuario, result) => {
