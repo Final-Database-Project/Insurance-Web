@@ -23,6 +23,7 @@ Perfil.findByEmail = (nuevoperfil, result) => {
 
 			idTipoUsuario = res.recordset[0].idTipoUsuario;
 
+
 			if (idTipoUsuario == 1) {
 				request.execute(
 					"SP_Select_UsuarioPersonal_by_id",
@@ -58,7 +59,9 @@ Perfil.findByEmail = (nuevoperfil, result) => {
 				);
 			}
 		}
-	);
+	).then((err, res) => {
+
+	})
 };
 
 module.exports = Perfil;
