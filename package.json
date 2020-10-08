@@ -2,25 +2,31 @@
   "name": "finalbdproject",
   "version": "1.0.0",
   "description": "Final Project from DataBase",
+  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "main": "index.js",
   "dependencies": {
     "@hapi/hapi": "^20.0.1",
     "express": "^4.17.1",
     "mssql": "^6.2.3",
-    "tedious": "^9.2.1"
+    "tedious": "^9.2.1",
+    "vuetify": "^2.2.11"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "~2.0.7",
+    "vuetify-loader": "^1.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Final-Database-Project/FinalBDProject.git"
-  },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Final-Database-Project/FinalBDProject/issues"
   },
-  "homepage": "https://github.com/Final-Database-Project/FinalBDProject#readme"
+  "homepage": "https://github.com/Final-Database-Project/FinalBDProject#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Final-Database-Project/FinalBDProject.git"
+  }
 }
