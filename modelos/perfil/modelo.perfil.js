@@ -19,16 +19,16 @@ Perfil.findByEmail = (nuevoperfil, result) => {
 			if (res.rowsAffected == 0) {
 				result({ kind: "no encontrado" }, null);
 				return;
-            }
-            
+			}
+
 			idTipoUsuario = res.recordset[0].idTipoUsuario;
 
 			if (idTipoUsuario == 1) {
 				request.execute(
 					"SP_Select_UsuarioPersonal_by_id",
-					(error, response) => {
+					(err, res) => {
 						if (err) {
-							console.log("error: ", error);
+							console.log("error: ", err);
 							result(err, null);
 							return;
 						}
@@ -37,23 +37,23 @@ Perfil.findByEmail = (nuevoperfil, result) => {
 							return;
 						}
 
-						result(null, response.recordset[0]);
+						result(null, res.recordset[0]);
 					}
 				);
 			} else if (idTipoUsuario == 2) {
 				request.execute(
 					"SP_Select_UsuarioEmpresarial_by_id",
-					(erro, resp) => {
-						if (erro) {
-							console.log("error: ", erro);
+					(err, res) => {
+						if (err) {
+							console.log("error: ", err);
 							result(err, null);
 							return;
 						}
-						if (resp.rowsAffected == 0) {
+						if (res.rowsAffected == 0) {
 							result({ kind: "no encontrado" }, null);
 							return;
 						}
-						result(null, resp.recordset[0]);
+						result(null, res.recordset[0]);
 					}
 				);
 			}
