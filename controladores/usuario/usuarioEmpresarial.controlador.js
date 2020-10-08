@@ -16,7 +16,7 @@ exports.crear = (req, res) => {
 		RNC: req.query.RNC,
 	});
 
-	usuarioEmpresarial.crear(usuarioEmpresarial, (err, data) => {
+	UsuarioEmpresarial.crear(usuarioEmpresarial, (err, data) => {
 		if (err)
 			res.status(500).send({
 				messaage:

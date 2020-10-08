@@ -1,4 +1,4 @@
-const sql = require("../../../../src/index");
+const sql = require("../../src/index");
 
 
 
