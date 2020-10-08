@@ -1,3 +1,0 @@
-CrearSeguro = `INSERT INTO Seguro(idAsegurador, idTipoSeguro, idMoneda, TipoCliente, Poliza, intermediario, Precio, FechaPago, FechaVencimiento) VALUES((SELECT idAsegurador FROM Asegurador where idAsegurador = @TipoAsegurador ), (SELECT idTipoSeguro FROM TipoSeguro where idTipoSeguro = @TipoSeguro), (SELECT idMoneda FROM Moneda where idMoneda = @moneda), (SELECT idTipoCliente FROM TipoCliente where idTipoCliente = @TipoCliente), @Poliza, @Intermediario, @Precio, GETDATE(), GETDATE())`;
-
-module.exports = CrearSeguro;
