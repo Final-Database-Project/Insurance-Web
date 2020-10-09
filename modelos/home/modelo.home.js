@@ -42,7 +42,7 @@ Home.findByEmail = (nuevohome, result) => {
 				);
 			} else if (idTipoUsuario == 2) {
 				request.execute(
-					"SP_Home_Empresarial",
+					"SP_Home_Personal",
 					(err, res) => {
 						if (err) {
 							console.log("error: ", err);
