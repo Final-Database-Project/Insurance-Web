@@ -4,10 +4,10 @@ const Home = function Home(home) {
 	this.Correo = home.Correo;
 };
 
-Home.findByEmail = (nuevoperfil, result) => {
+Home.findByEmail = (nuevohome, result) => {
 	const request = sql.request();
 	var idTipoUsuario = "";
-	request.input("Correo", nuevoperfil.Correo);
+	request.input("Correo", nuevohome.Correo);
 	request.query(
 		"Select idTipoUsuario from Usuario where Correo = @Correo",
 		(err, res) => {
@@ -25,7 +25,7 @@ Home.findByEmail = (nuevoperfil, result) => {
 
 			if (idTipoUsuario == 1) {
 				request.execute(
-					"SP_Home",
+					"SP_Home_Empresarial",
 					(err, res) => {
 						if (err) {
 							console.log("error: ", err);
@@ -42,7 +42,7 @@ Home.findByEmail = (nuevoperfil, result) => {
 				);
 			} else if (idTipoUsuario == 2) {
 				request.execute(
-					"SP_Home",
+					"SP_Home_Empresarial",
 					(err, res) => {
 						if (err) {
 							console.log("error: ", err);
