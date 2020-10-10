@@ -1,5 +1,5 @@
 module.exports = app => {
-    const perfil = require("../../../controladores/home/home.controlador.");
+    const home = require("../../../controladores/home/home.controlador");
 
-    app.get("/Home", Home.findByEmail);
+    app.get("/Home", home.findByEmail);
 }
