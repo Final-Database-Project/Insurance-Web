@@ -8,12 +8,12 @@ exports.crear = (req, res) => {
 	}
 
 	const usuarioEmpresarial = new UsuarioEmpresarial({
-		Correo: req.query.Correo,
-		Contraseña: req.query.Contraseña,
-		Nombre: req.query.Nombre,
-		Direccion: req.query.Direccion,
-		NumeroTelefonico: req.query.NumeroTelefonico,
-		RNC: req.query.RNC,
+		Correo: req.body.Correo,
+		Contraseña: req.body.Contraseña,
+		Nombre: req.body.Nombre,
+		Direccion: req.body.Direccion,
+		NumeroTelefonico: req.body.NumeroTelefonico,
+		RNC: req.body.RNC,
 	});
 
 	UsuarioEmpresarial.crear(usuarioEmpresarial, (err, data) => {

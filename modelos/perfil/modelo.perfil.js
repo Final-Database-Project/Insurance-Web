@@ -59,9 +59,7 @@ Perfil.findByEmail = (nuevoperfil, result) => {
 				);
 			}
 		}
-	).then((err, res) => {
-
-	})
+	)
 };
 
 module.exports = Perfil;

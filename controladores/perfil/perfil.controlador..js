@@ -8,23 +8,23 @@ exports.findByEmail = (req, res) => {
 	}
 
 	const perfil = new Perfil({
-		Correo: req.query.Correo,
+		Correo: req.body.Correo,
 	});
 
 	Perfil.findByEmail(perfil, (err, data) => {
-		if (err)
+		if (err){
 			if ((err.kind = "no encontrado")) {
 				res.status(404).send({
-					message: `El usuario con el correo ${req.query.Correo} no puedo ser encontrado`,
+					message: `El usuario con el correo ${perfil.Correo} no puedo ser encontrado`,
 				});
 			} else {
 				res.status(500).send({
 					message:
 						err.message ||
-						"Ha ocurrido un error al intentar buscar el perfil del usuario con el correo " +
-							req.query.Correo,
+						"Ha ocurrido un error al intentar buscar el perfil del usuario con el correo " + perfil.Correo
 				});
 			}
-		else res.send(data);
+		}
+		else res.send(data)
 	});
 };
