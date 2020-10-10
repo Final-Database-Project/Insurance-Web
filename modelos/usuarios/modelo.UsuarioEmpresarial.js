@@ -1,6 +1,8 @@
 const sql = require("../../src/index");
 
 const UsuarioEmpresarial = function UsuarioEmpresarial(usuarioEmpresarial) {
+	this.idUsuario = usuarioEmpresarial.idUsuario;
+	this.idTipoUsuario = usuarioEmpresarial.idTipoUsuario;
 	this.Correo = usuarioEmpresarial.Correo;
 	this.Contraseña = usuarioEmpresarial.Contraseña;
 	this.Nombre = usuarioEmpresarial.Nombre;

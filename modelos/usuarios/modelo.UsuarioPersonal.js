@@ -2,6 +2,9 @@ const sql = require("../../src/index");
 const bcrypt = require('bcrypt')
 
 const UsuarioPersonal = function UsuarioPersonal(usuarioPersonal) {
+
+	this.idUsuario = usuarioPersonal.idUsuario;
+	this.idTipoUsuario = usuarioPersonal.idTipoUsuario;
 	this.Correo = usuarioPersonal.Correo;
 	this.Contraseña = usuarioPersonal.Contraseña;
 	this.Nombre = usuarioPersonal.Nombre;

@@ -1,27 +1,48 @@
-const Usuario = require("../../modelos/usuarios/modelo.Usuario");
+const Perfil = require("../../modelos/perfil/modelo.perfil");
+const UsuarioEmpresarial = require("../../modelos/usuarios/modelo.UsuarioEmpresarial");
+const UsuarioPersonal = require("../../modelos/usuarios/modelo.UsuarioPersonal");
+require("../../modelos/usuarios/modelo.UsuarioPersonal")
+require("../../modelos/usuarios/modelo.UsuarioEmpresarial")
 exports.findByEmail =  async (Correo, result) => {
 	try{
-
-
-		Usuario.findByEmail(Correo, (err, data) => {
+		Perfil.findByEmail(Correo, (err, data) => {
 			if(!data)
 			{
 				result(null, null)
-				return;
-			}
-			const usuario = new Usuario({
-				idUsuario: data.idUsuario,
-				idTipoUsuario: data.idTipoUsuario,
-				Correo: data.Correo,
-				Contraseña: data.Contraseña,
-				Nombre: data.Nombre,
-				Direccion: data.Direccion,
-				NumeroTelefonico: data.NumeroTelefonico,
-			});
-			
-			result(null, usuario)
 
+			}else if(data.idTipoUsuario == 1){
+				console.log
+				const usuario = new UsuarioPersonal({
+					idUsuario: data.idUsuario,
+					idTipoUsuario: data.idTipoUsuario,
+					Correo: data.Correo,
+					Contraseña: data.Contraseña,
+					Nombre: data.Nombre,
+					Direccion: data.Direccion,
+					NumeroTelefonico: data.NumeroTelefonico,
+					Apellido: data.Apellido,
+					Cedula: data.Cedula,
+					FechaNacimiento: data.FechaNacimiento,
+					
+				});	
+				console.log(usuario)
+				result(null, usuario)
+
+			}else if(data.idTipoUsuario == 2){
+				const usuario = new UsuarioEmpresarial({
+					idUsuario: data.idUsuario,
+					idTipoUsuario: data.idTipoUsuario,
+					Correo: data.Correo,
+					Contraseña: data.Contraseña,
+					Nombre: data.Nombre,
+					Direccion: data.Direccion,
+					NumeroTelefonico: data.NumeroTelefonico,
+					RNC: data.RNC
+				});	
+				result(null, usuario)
+			}
 		});
+
 
 	}
 	catch(e)
@@ -32,27 +53,44 @@ exports.findByEmail =  async (Correo, result) => {
 
 exports.getUserById = (id, result) =>{
 	try{
-
-
-		Usuario.getUserById(id, (err, data) => {
+		Perfil.getUserById(id, (err, data) => {
 			if(!data)
 			{
 				result(null, null)
-				return;
-			}
-			const usuario = new Usuario({
-				idUsuario: data.idUsuario,
-				idTipoUsuario: data.idTipoUsuario,
-				Correo: data.Correo,
-				Contraseña: data.Contraseña,
-				Nombre: data.Nombre,
-				Direccion: data.Direccion,
-				NumeroTelefonico: data.NumeroTelefonico,
-			});
-			
-			result(null, usuario)
 
+			}else if(data.idTipoUsuario == 1){
+				console.log
+				const usuario = new UsuarioPersonal({
+					idUsuario: data.idUsuario,
+					idTipoUsuario: data.idTipoUsuario,
+					Correo: data.Correo,
+					Contraseña: data.Contraseña,
+					Nombre: data.Nombre,
+					Direccion: data.Direccion,
+					NumeroTelefonico: data.NumeroTelefonico,
+					Apellido: data.Apellido,
+					Cedula: data.Cedula,
+					FechaNacimiento: data.FechaNacimiento,
+					
+				});	
+				console.log(usuario)
+				result(null, usuario)
+
+			}else if(data.idTipoUsuario == 2){
+				const usuario = new UsuarioEmpresarial({
+					idUsuario: data.idUsuario,
+					idTipoUsuario: data.idTipoUsuario,
+					Correo: data.Correo,
+					Contraseña: data.Contraseña,
+					Nombre: data.Nombre,
+					Direccion: data.Direccion,
+					NumeroTelefonico: data.NumeroTelefonico,
+					RNC: data.RNC
+				});	
+				result(null, usuario)
+			}
 		});
+
 
 	}
 	catch(e)

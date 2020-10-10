@@ -63,7 +63,8 @@ require("./routes/home/rutasHome")(app);
 
 
 app.get("/", aut.checkAuthenticated, (req, res) => {
-	res.render('index.ejs', {name: req.user.Nombre})
+	console.log("Usuario: ", req.user)
+	res.render('index.ejs', req.user)
 });
 
 app.get('/logout', aut.checkAuthenticated, (req,res) =>{
