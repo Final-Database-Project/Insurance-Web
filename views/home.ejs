@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">  
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Hi <%= user.Nombre %> <%= user.Apellido %> <%= user.idTipoUsuario %> </a>
+      <a class="navbar-brand" href="#">Hi <%= data.user.Nombre %> <%= data.user.Apellido %> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,7 +31,7 @@ h1{
 </style>
 <body>
   <table class="table" >
-  <% if (user.idTipoUsuario == 1) { %>
+  <% if (data.user.idTipoUsuario == 1) { %>
     <thead class="thead-dark">
       <th scope="col">Firstname</th>
       <th scope="col">Lastname</th> 
@@ -44,20 +44,28 @@ h1{
       </th>
     </thead>
     <tbody>
-      <td><%= user.Nombre %></td>
-      <td><%= user.Apellido %></td>
-      <td><%= user.Direccion %></td>
-      <td><%= user.Cedula %></td>
-    <tr>
-      <td>Victor</td>
-      <td>Calderon</td>
-      <td>Socorro 123</td>
-      <td>40210035351</td>
+      <tr>
+      <td><%= data.user.Nombre %></td>
+      <td><%= data.user.Apellido %></td>
+      <td><%= data.user.Direccion %></td>
+      <td><%= data.user.Cedula %></td>
+      
     </tr>
-  </tbody>
+      <% for(var i=0; i < data.homedata.length; i++) { %>
+        <tr>
+          <td><%= data.homedata[i].Precio %> </td>
+          <td><%= data.homedata[i].NombreAsegurador %> </td>
+          <td><%= data.homedata[i].Direccion %></td>
+          <td><%= data.homedata[i].NumeroTelefono %></td>
+          <td><%= data.homedata[i].NombreTipoSeguro %></td>
 
+        </tr>
+      <% } %>
+  </tbody>
+</table>
   <% } %> 
-  <% if (user.idTipoUsuario == 2){ %>
+  <% if (data.user.idTipoUsuario == 2){ %>
+  <table>
   <thead class="thead-dark">
     <tr>
       <th>Nombre</th>
@@ -68,10 +76,10 @@ h1{
   </thead>
   <tbody>
     <tr>
-      <td><%= user.Nombre %></td>
-      <td><%= user.Direccion %></td>
-      <td><%= user.NumeroTelefonico %></td>
-      <td><%= user.RNC %></td>
+      <td><%= data.user.Nombre %></td>
+      <td><%= data.user.Direccion %></td>
+      <td><%= data.user.NumeroTelefonico %></td>
+      <td><%= data.user.RNC %></td>
     </tr>
   </tbody>
   <% } %> 
