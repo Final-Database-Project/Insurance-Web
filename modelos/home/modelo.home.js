@@ -1,65 +1,7 @@
 const sql = require("../../src/index");
 
 const Home = function Home(home) {
-	this.Correo = home.Correo;
 	this.idSeguro = home.idSeguro;
-};
-
-Home.findByEmail = (nuevohome, result) => {
-	const request = sql.request();
-	var idTipoUsuario = "";
-	request.input("Correo", nuevohome.Correo);
-	request.query(
-		"Select idTipoUsuario from Usuario where Correo = @Correo",
-		(err, res) => {
-			if (err) {
-				console.log("error: ", err);
-				result(err, null);
-				return;
-			}
-			if (res.rowsAffected == 0) {
-				result({ kind: "no encontrado" }, null);
-				return;
-			}
-
-			idTipoUsuario = res.recordset[0].idTipoUsuario;
-
-			if (idTipoUsuario == 1) {
-				request.execute(
-					"SP_Home_Empresarial",
-					(err, res) => {
-						if (err) {
-							console.log("error: ", err);
-							result(err, null);
-							return;
-						}
-						if (res.rowsAffected == 0) {
-							result({ kind: "no encontrado" }, null);
-							return;
-						}
-
-						result(null, res.recordset[0]);
-					}
-				);
-			} else if (idTipoUsuario == 2) {
-				request.execute(
-					"SP_Home_Personal",
-					(err, res) => {
-						if (err) {
-							console.log("error: ", err);
-							result(err, null);
-							return;
-						}
-						if (res.rowsAffected == 0) {
-							result({ kind: "no encontrado" }, null);
-							return;
-						}
-						result(null, res.recordset[0]);
-					}
-				);
-			}
-		}
-	);
 };
 
 Home.DeleteSeguro = (nuevohome, result) => {
