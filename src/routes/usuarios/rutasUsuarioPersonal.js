@@ -3,6 +3,6 @@ module.exports = app => {
 	const cors = require('cors')
 
 
-	app.post("/usuarioPersonal", cors(), usuarioPersonal.crear);
+	app.post("/usuarioPersonal", usuarioPersonal.crear);
 
 };

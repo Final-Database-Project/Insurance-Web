@@ -1,7 +1,5 @@
 const UsuarioPersonal = require("../../modelos/usuarios/modelo.UsuarioPersonal")
 
-
-
 exports.crear = (req, res) => {
 	try{
 		if (!req.params) {
@@ -29,7 +27,6 @@ exports.crear = (req, res) => {
 						"Ha ocurrido un error al intentar crear al usuario personal",
 				})
 			}
-
 		})
 		console.log("redirecting success...")
 		res.redirect('/login')

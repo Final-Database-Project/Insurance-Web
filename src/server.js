@@ -58,13 +58,12 @@ require("./routes/register/rutaRegisterPersonal")(app)
 require("./routes/usuarios/rutasUsuarioEmpresarial")(app);
 require("./routes/seguros/rutaCrearSeguro")(app);
 require("./routes/usuarios/rutasUsuarioPersonal")(app);
-require("./routes/perfil/rutasPerfil")(app);
 require("./routes/home/rutasHome")(app);
+require("./routes/home/rutasHome")
 
-
-app.get("/", aut.checkAuthenticated, (req, res) => {
-	res.render('index.ejs', req)
-});
+app.get('/', (req, res) => {
+	res.redirect('/home')
+})
 
 app.get('/logout', aut.checkAuthenticated, (req,res) =>{
 	req.logOut()

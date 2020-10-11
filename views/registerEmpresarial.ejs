@@ -1,18 +1,89 @@
-<h1>Register Empresarial</h1>
-<form action="/register/Empresarial" method="POST">
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Register</button>
-    </form>
-    <a href="/login">Login</a>
-    
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <h1>Registro Personal</h1>
+    </head>
+    <style>
+        h1{
+            margin-top: 10px;
+            margin-bottom: 30px;
+            margin-right: 25%;
+            margin-left: 25%;
+        } 
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 25%;
+            margin-left: 25%;
+        }
+    </style>
+<body>
+    <form  action="/register/Empresarial" method="POST">
+        <div class="form-group">
+            <label for="Nombre">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" aria-describedby="Nombre" placeholder="Nombre" maxlength="20" name="Nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="Correo">Correo</label>
+          <input type="email" class="form-control" id="Correo" aria-describedby="emailHelp" placeholder="Correo Electronico" maxlength="50" name="Correo"required>
+        </div>
+        <div class="form-group">
+            <label for="Direccion">Direccion</label>
+            <input type="text" class="form-control" id="Direccion" aria-describedby="Direccion" placeholder="Direccion" maxlength="100" name="Direccion" required>
+          </div>
+          <div class="form-group">
+            <label for="NumeroTelefonico">Numero Telefonico</label>
+            <input type="text" class="form-control" id="NumeroTelefonico" name="NumeroTelefonico" aria-describedby="NumeroTelefonico" placeholder="Numero Telefonico" maxlength="10" onkeypress="return isNumberKey(event)" required>
+          </div>
+          <div class="form-group">
+            <label for="RNC">RNC</label>
+            <input type="text" class="form-control" id="NumeroTelefonico" name="RNC" aria-describedby="RNC" placeholder="RNC" maxlength="13" onkeypress="return isNumberKey(event)" required>
+          </div>
+          <div class="form-group">
+            <label for="Contraseña">Contraseña</label>
+            <input type="password" class="form-control" id="Contraseña" placeholder="Contraseña" onkeyup='check();'maxlength="25" name="Contraseña" required>
+          </div>
+          <div class="form-group">
+            <label for="ConfirmarContraseña">Confirmar Contraseña</label>
+            <input type="password" class="form-control" id="ConfirmarContraseña" placeholder="ConfirmarContraseña" onkeyup='check();' maxlength="25" required>
+            <span id='message'></span>
+          </div>
+          <button type="submit" class="btn btn-primary" id="Registrarse">Registrarse</button>
+          <a href="/login">Login</a>
+          </form>
+ 
+</body>
+
+<script type="text/javascript">
+    function check() {
+
+        if (document.getElementById('Contraseña').value ==
+          document.getElementById('ConfirmarContraseña').value) {
+          document.getElementById('message').hidden = true;
+          document.getElementById('Registrarse').disabled = false;
+        } 
+        else {
+          document.getElementById('Registrarse').disabled = true;
+          document.getElementById('message').hidden = false;
+          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = 'Las contraseñas no son iguales';
+  }
+}
+
+  function isNumberKey(evt){
+			{
+				var charCode = (evt.which) ? evt.which : evt.keyCode;
+				if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
+				  return false;
+
+				return true;
+      }  
+    }
+		
+</script>
+ </html>

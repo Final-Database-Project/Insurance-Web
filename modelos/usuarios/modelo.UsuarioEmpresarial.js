@@ -1,4 +1,5 @@
 const sql = require("../../src/index");
+const bcrypt = require('bcrypt')
 
 const UsuarioEmpresarial = function UsuarioEmpresarial(usuarioEmpresarial) {
 	this.idUsuario = usuarioEmpresarial.idUsuario;
@@ -13,8 +14,12 @@ const UsuarioEmpresarial = function UsuarioEmpresarial(usuarioEmpresarial) {
 
 UsuarioEmpresarial.crear = (nuevousuario, result) => {
 	const request = sql.request();
-	request.input("Correo", nuevousuario.Correo);
-	request.input("Contraseña", nuevousuario.Contraseña);
+	bcrypt.genSalt(10, (err, salt) =>{
+		bcrypt.hash(nuevousuario.Contraseña, salt, function(err, hash) {
+			request.input("Contraseña", hash);
+		});
+	})
+	request.input("Correo", nuevousuario.Correo);;
 	request.input("Nombre", nuevousuario.Nombre);
 	request.input("Direccion", nuevousuario.Direccion);
 	request.input("NumeroTelefonico", nuevousuario.NumeroTelefonico);
@@ -27,7 +32,7 @@ UsuarioEmpresarial.crear = (nuevousuario, result) => {
 			return;
 		}
 		console.log("UsuarioEmpresarial creado: ", { ...nuevousuario });
-		result(null, { ...nuevousuario });
+		result(null, res);
 	});
 };
 

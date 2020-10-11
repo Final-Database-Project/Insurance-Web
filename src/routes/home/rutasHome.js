@@ -1,5 +1,10 @@
 module.exports = app => {
-    const home = require("../../../controladores/home/home.controlador");
+    const passport = require('passport')
+    const aut = require('../../Checkautentification')
 
-    app.get("/Home", home.findByEmail);
+
+    app.get("/home", aut.checkAuthenticated, (req, res) => {
+        res.render('home.ejs', req)
+    });
+    
 }

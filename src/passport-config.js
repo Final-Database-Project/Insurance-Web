@@ -22,7 +22,6 @@ function initialize (passport){
                     }
                     })
                 })	
-
             }
     passport.use(new LocalStrategy({usernameField: 'Correo', passwordField: 'Contraseña'}, authenticateuser))
     passport.serializeUser((user, done) => {done(null, user.idUsuario)})

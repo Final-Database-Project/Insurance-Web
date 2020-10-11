@@ -15,7 +15,7 @@ const UsuarioPersonal = function UsuarioPersonal(usuarioPersonal) {
 	this.FechaNacimiento = usuarioPersonal.FechaNacimiento;
 };
 
-UsuarioPersonal.crear = async (nuevousuario, result) => {
+UsuarioPersonal.crear =  (nuevousuario, result) => {
 	const request = sql.request();
 	bcrypt.genSalt(10, (err, salt) =>{
 		bcrypt.hash(nuevousuario.Contraseña, salt, function(err, hash) {
@@ -33,6 +33,7 @@ UsuarioPersonal.crear = async (nuevousuario, result) => {
 	request.execute("CrearUsuarioPersonal", (err, res) => {
 		if (err) {
 			console.log("error: ", err);
+			result(err, null)
 			return;
 		}
 		console.log("UsuarioPersonal creado: ", {

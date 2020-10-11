@@ -3,6 +3,7 @@ const UsuarioEmpresarial = require("../../modelos/usuarios/modelo.UsuarioEmpresa
 const UsuarioPersonal = require("../../modelos/usuarios/modelo.UsuarioPersonal");
 require("../../modelos/usuarios/modelo.UsuarioPersonal")
 require("../../modelos/usuarios/modelo.UsuarioEmpresarial")
+
 exports.findByEmail =  async (Correo, result) => {
 	try{
 		Perfil.findByEmail(Correo, (err, data) => {
