@@ -5,11 +5,8 @@ const Usuario = require('../controladores/usuario/usuario.controlador')
 var usuario;
 
 function initialize (passport){
-    console.log('hey im in initialize')
     const authenticateuser = async (email, contraseña, done) =>{
-        console.log('hey again im now in autenticateuser')
         Usuario.findByEmail(email, (err, user) =>{
-            console.log("Usuario a autenticar: ", user)
             usuario = user
             if(!user){
                 return done(null, false, {message: 'No existe un usuario con ese correo'})
@@ -19,7 +16,6 @@ function initialize (passport){
                         throw err
                     }
                     if(res){
-                        console.log(user)
                         return done(null, user)
                     }else {
                         return done(null, false, {message: 'La contraseña es incorrecta'})

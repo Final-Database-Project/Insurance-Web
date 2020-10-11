@@ -12,7 +12,6 @@ module.exports.checkNotAutehtnicated = function checkNotAutehtnicated(req, res,n
 	if(req.isAuthenticated()){
 		return res.redirect('/')
 	}
-
 	next()
 }
 

@@ -11,7 +11,6 @@ exports.findByEmail =  async (Correo, result) => {
 				result(null, null)
 
 			}else if(data.idTipoUsuario == 1){
-				console.log
 				const usuario = new UsuarioPersonal({
 					idUsuario: data.idUsuario,
 					idTipoUsuario: data.idTipoUsuario,
@@ -25,7 +24,6 @@ exports.findByEmail =  async (Correo, result) => {
 					FechaNacimiento: data.FechaNacimiento,
 					
 				});	
-				console.log(usuario)
 				result(null, usuario)
 
 			}else if(data.idTipoUsuario == 2){
@@ -59,7 +57,6 @@ exports.getUserById = (id, result) =>{
 				result(null, null)
 
 			}else if(data.idTipoUsuario == 1){
-				console.log
 				const usuario = new UsuarioPersonal({
 					idUsuario: data.idUsuario,
 					idTipoUsuario: data.idTipoUsuario,
@@ -73,7 +70,6 @@ exports.getUserById = (id, result) =>{
 					FechaNacimiento: data.FechaNacimiento,
 					
 				});	
-				console.log(usuario)
 				result(null, usuario)
 
 			}else if(data.idTipoUsuario == 2){
