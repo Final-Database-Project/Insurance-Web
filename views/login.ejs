@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
+    <style>
+        a{
+            margin-left:350px;
+        }
+        body{
+            margin-top: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            display: flex;
+            align-self: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            margin-right: 150px;
+            margin-left: 150px;
+        } 
+        form{
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 100px;
+            margin-left: 100px;
+        }
+    </style>
+
+<body>
+
+    <form  action="/login" method="POST">
+        <h1>LogIn</h1>
+        <% if(messages.error){ %>
+            <%= messages.error %>
+        <% } %>   
+        <div class="form-group">
+          <label for="Correo">Correo</label>
+          <input type="email" class="form-control" id="Correo" aria-describedby="emailHelp" placeholder="Correo Electronico" maxlength="50" name="Correo"required>
+        </div>
+          <div class="form-group">
+            <label for="Contraseña">Contraseña</label>
+            <input type="password" class="form-control" id="Contraseña" placeholder="Contraseña" maxlength="25" name="Contraseña" required>
+          </div>
+          <button type="submit" class="btn btn-primary" id="Login">LogIn</button>
+          </form>
+          <a href="/register">Register</a>
+ 
+</body>
+ </html>

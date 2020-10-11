@@ -1,6 +1,10 @@
 const sql = require("../../src/index");
+const bcrypt = require('bcrypt')
 
 const UsuarioPersonal = function UsuarioPersonal(usuarioPersonal) {
+
+	this.idUsuario = usuarioPersonal.idUsuario;
+	this.idTipoUsuario = usuarioPersonal.idTipoUsuario;
 	this.Correo = usuarioPersonal.Correo;
 	this.Contraseña = usuarioPersonal.Contraseña;
 	this.Nombre = usuarioPersonal.Nombre;
@@ -11,10 +15,14 @@ const UsuarioPersonal = function UsuarioPersonal(usuarioPersonal) {
 	this.FechaNacimiento = usuarioPersonal.FechaNacimiento;
 };
 
-UsuarioPersonal.crear = (nuevousuario, result) => {
+UsuarioPersonal.crear =  (nuevousuario, result) => {
 	const request = sql.request();
+	bcrypt.genSalt(10, (err, salt) =>{
+		bcrypt.hash(nuevousuario.Contraseña, salt, function(err, hash) {
+			request.input("Contraseña", hash);
+		});
+	})
 	request.input("Correo", nuevousuario.Correo);
-	request.input("Contraseña", nuevousuario.Contraseña);
 	request.input("Nombre", nuevousuario.Nombre);
 	request.input("Direccion", nuevousuario.Direccion);
 	request.input("NumeroTelefonico", nuevousuario.NumeroTelefonico);
@@ -22,33 +30,16 @@ UsuarioPersonal.crear = (nuevousuario, result) => {
 	request.input("Cedula", nuevousuario.Cedula);
 	request.input("FechaNacimiento", nuevousuario.FechaNacimiento);
 
-	request.execute("CrearUsuarioPersonal", (err) => {
+	request.execute("CrearUsuarioPersonal", (err, res) => {
 		if (err) {
 			console.log("error: ", err);
-			result(err, null);
+			result(err, null)
 			return;
 		}
-		request.query(
-			"SELECT IDENT_CURRENT('Usuario') As idUsuario; SELECT IDENT_CURRENT('UsuarioPersonal') As idUsuarioPersonal",
-			(error, res) => {
-				if (err) {
-					console.log("error: ", err);
-					result(err, null);
-					return;
-				}
-				console.dir(res.recordset[0].idUsuario);
-				console.log("UsuarioPersonal creado: ", {
-					idUsuario: res.recordsets[0][0].idUsuario,
-					...nuevousuario,
-					idUsuarioPersonal: res.recordsets[1][0].idUsuarioPersonal,
-				});
-				result(null, {
-					idUsuario: res.recordset[0].idUsuario,
-					...nuevousuario,
-					idUsuarioPersonal: res.recordsets[1][0].idUsuarioPersonal,
-				});
-			}
-		);
+		console.log("UsuarioPersonal creado: ", {
+			...nuevousuario,
+		});
+		result(null,res);
 	});
 };
 

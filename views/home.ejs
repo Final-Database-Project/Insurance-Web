@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">  
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Hi <%= data.user.Nombre %> <%= data.user.Apellido %> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/logout">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+      </div>
+    </nav>
+</head>
+
+<style>
+h1{
+  display: flex;
+  flex-direction: row;
+}
+
+</style>
+<body>
+  <table class="table" >
+  <% if (data.user.idTipoUsuario == 1) { %>
+    <thead class="thead-dark">
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th> 
+      <th scope="col">Direccion</th>
+      <th scope="col">Cedula</th>
+      <th scope="col">
+        <form action="">
+          <button type="button" class="btn btn-success" ><i class="fas fa-plus"></i></button>
+        </form>
+      </th>
+    </thead>
+    <tbody>
+      <tr>
+      <td><%= data.user.Nombre %></td>
+      <td><%= data.user.Apellido %></td>
+      <td><%= data.user.Direccion %></td>
+      <td><%= data.user.Cedula %></td>
+      
+    </tr>
+      <% for(var i=0; i < data.homedata.length; i++) { %>
+        <tr>
+          <td><%= data.homedata[i].Precio %> </td>
+          <td><%= data.homedata[i].NombreAsegurador %> </td>
+          <td><%= data.homedata[i].Direccion %></td>
+          <td><%= data.homedata[i].NumeroTelefono %></td>
+          <td><%= data.homedata[i].NombreTipoSeguro %></td>
+
+        </tr>
+      <% } %>
+  </tbody>
+</table>
+  <% } %> 
+  <% if (data.user.idTipoUsuario == 2){ %>
+  <table>
+  <thead class="thead-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th> 
+      <th>Numero Telefonico</th>
+      <th>RNC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= data.user.Nombre %></td>
+      <td><%= data.user.Direccion %></td>
+      <td><%= data.user.NumeroTelefonico %></td>
+      <td><%= data.user.RNC %></td>
+    </tr>
+  </tbody>
+  <% } %> 
+
+  </table>
+</body>
+
+<script>
+  function test(){
+    console.log("asi no")
+  }
+</script>
+
+</html>
