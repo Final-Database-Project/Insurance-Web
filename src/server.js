@@ -1,7 +1,3 @@
-if(process.env.NODE_ENV !== 'prduction'){
-	require('dotenv').config()
-}
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
@@ -32,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(flash())
 app.use(session({
-	secret: process.env.SESSION_SECRET,
+	secret: 'secret',
 	resave: false,
 	saveUninitialized: false
 }));

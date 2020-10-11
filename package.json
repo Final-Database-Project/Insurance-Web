@@ -17,6 +17,8 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
     "html": "^1.0.0",
+    "mdb": "^0.1.0",
+    "mdbootstrap": "^4.19.1",
     "method-override": "^3.0.0",
     "mssql": "^6.2.3",
     "passport": "^0.4.1",
