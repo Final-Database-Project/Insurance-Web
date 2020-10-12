@@ -4,9 +4,7 @@ module.exports = app => {
     const home = require('../../../controladores/home/home.controlador')
     var homedata;
 
-<<<<<<< HEAD
     app.get("/Home", home.DeleteSeguro);
-=======
     app.get("/home", aut.checkAuthenticated, (req,res) => {
         home.findByEmail(req.user.Correo, (err, home) =>{ 
             console.log(home)
@@ -16,5 +14,4 @@ module.exports = app => {
     });
 
     
->>>>>>> 6919a90a806a615ec58983323be8db69d05f6666
 }
