@@ -4,7 +4,7 @@ module.exports = app => {
     const home = require('../../../controladores/home/home.controlador')
     var homedata;
 
-    app.get("/Home", home.DeleteSeguro);
+    //app.get("/Home", home.findByEmail);
     app.get("/home", aut.checkAuthenticated, (req,res) => {
         home.findByEmail(req.user.Correo, (err, home) =>{ 
             console.log(home)
