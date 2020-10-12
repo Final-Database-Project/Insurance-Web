@@ -17,8 +17,6 @@ const port = 3000;
 
 
 
-
-
 app.set('view-engine', 'ejs')
 
 //parse requests of content-type: application/json
