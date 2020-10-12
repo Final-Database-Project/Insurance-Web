@@ -1,25 +1,26 @@
 const sql = require("../../src/index");
 
-const CrearSeguroVidaColectiva = function CrearSeguroVidaColectiva(crearSeguroVida){
-
-    this.idAsegurador = crearSeguroVida.idAsegurador;
-    this.idTipoSeguro = crearSeguroVida.idTipoSeguro;
-    this.idMoneda = crearSeguroVida.idMoneda;
-    this.idTipoCliente = crearSeguroVida.idTipoCliente;
-    this.Poliza = crearSeguroVida.Poliza;
-    this.intermediario = crearSeguroVida.intermediario;
-    this.precio = crearSeguroVida.precio;
-    this.fechaPago = crearSeguroVida.fechaPago;
-    this.fechaVencido = crearSeguroVida.fechaVencido;
-    this.EdadPromedio = crearSeguroVida.EdadPromedio;
-    this.CantidadAsegurados = crearSeguroVida.CantidadAsegurados;
-    
-
+const CrearSeguroVidaColectiva = function CrearSeguroVidaColectiva(
+  crearSeguroVida
+) {
+  this.idAsegurador = crearSeguroVida.idAsegurador;
+  this.idUsuario = crearseguroTransporte.idUsuario;
+  this.idTipoSeguro = crearSeguroVida.idTipoSeguro;
+  this.idMoneda = crearSeguroVida.idMoneda;
+  this.idTipoCliente = crearSeguroVida.idTipoCliente;
+  this.Poliza = crearSeguroVida.Poliza;
+  this.intermediario = crearSeguroVida.intermediario;
+  this.precio = crearSeguroVida.precio;
+  this.fechaPago = crearSeguroVida.fechaPago;
+  this.fechaVencido = crearSeguroVida.fechaVencido;
+  this.EdadPromedio = crearSeguroVida.EdadPromedio;
+  this.CantidadAsegurados = crearSeguroVida.CantidadAsegurados;
 };
 
-CrearSeguroVidaColectiva.crear = (nuevoseguroVida, result) =>{
-    const request = sql.request();
+CrearSeguroVidaColectiva.crear = (nuevoseguroVida, result) => {
+  const request = sql.request();
   request.input("idAsegurador", nuevoseguroVida.idAsegurador);
+  request.input("idUsuario", nuevoseguroVida.idUsuario);
   request.input("idTipoSeguro", nuevoseguroVida.idTipoCliente);
   request.input("idMoneda", nuevoseguroVida.idMoneda);
   request.input("TipoCliente", nuevoseguroVida.idTipoCliente);
@@ -37,7 +38,6 @@ CrearSeguroVidaColectiva.crear = (nuevoseguroVida, result) =>{
     }
 
     result(null, {
-     
       ...nuevoseguroVida,
     });
 
@@ -47,6 +47,6 @@ CrearSeguroVidaColectiva.crear = (nuevoseguroVida, result) =>{
       return;
     }
   });
-}
+};
 
 module.exports = CrearSeguroVidaColectiva;

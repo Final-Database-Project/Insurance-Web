@@ -4,6 +4,7 @@ const CrearSeguroTransporte = function CrearSeguroTransporte(
   crearseguroTransporte
 ) {
   this.idAsegurador = crearseguroTransporte.idAsegurador;
+  this.idUsuario = crearseguroTransporte.idUsuario;
   this.idTipoSeguro = crearseguroTransporte.idTipoSeguro;
   this.idMoneda = crearseguroTransporte.idMoneda;
   this.idTipoCliente = crearseguroTransporte.idTipoCliente;
@@ -20,12 +21,13 @@ const CrearSeguroTransporte = function CrearSeguroTransporte(
 
 CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
   const request = sql.request();
-  request.input("idAsegurador", nuevoseguroTransporte.idAsegurador);
-  request.input("idTipoSeguro", nuevoseguroTransporte.idTipoCliente);
-  request.input("idMoneda", nuevoseguroTransporte.idMoneda);
+  request.input("TipoAsegurador", nuevoseguroTransporte.idAsegurador);
+  request.input("idUsuario", nuevoseguroTransporte.idUsuario);
+  request.input("TipoSeguro", nuevoseguroTransporte.idTipoCliente);
+  request.input("moneda", nuevoseguroTransporte.idMoneda);
   request.input("TipoCliente", nuevoseguroTransporte.idTipoCliente);
   request.input("Poliza", nuevoseguroTransporte.Poliza);
-  request.input("intermediario", nuevoseguroTransporte.intermediario);
+  request.input("Intermediario", nuevoseguroTransporte.intermediario);
   request.input("Precio", nuevoseguroTransporte.precio);
   request.input("FechaPago", nuevoseguroTransporte.fechaPago);
   request.input("FechaVencimiento", nuevoseguroTransporte.fechaVencido);
@@ -33,14 +35,14 @@ CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
   request.input("idTipoTransporte", nuevoseguroTransporte.idTipoTransporte);
   request.input("Matricula", nuevoseguroTransporte.Matricula);
   request.input("Año", nuevoseguroTransporte.Año);
-  request.execute("CrearSeguroTransporte", (err, res) => {
+  request.execute("CrearSeguroMedioTransporte", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
     }
 
     result(null, {
-      ...nuevoseguroincendio,
+      ...nuevoseguroTransporte,
     });
 
     if (err) {
@@ -50,3 +52,5 @@ CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
     }
   });
 };
+
+module.exports = CrearSeguroTransporte;

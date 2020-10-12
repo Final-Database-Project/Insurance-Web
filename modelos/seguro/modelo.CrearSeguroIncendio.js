@@ -1,8 +1,8 @@
 const sql = require("../../src/index");
 
-const CrearSeguroIncendio = function CrearSeguroIncendio(crearseguroIncendio){
-
-    this.idAsegurador = crearseguroIncendio.idAsegurador;
+const CrearSeguroIncendio = function CrearSeguroIncendio(crearseguroIncendio) {
+  this.idAsegurador = crearseguroIncendio.idAsegurador;
+  this.idUsuario = crearseguroTransporte.idUsuario;
   this.idTipoSeguro = crearseguroIncendio.idTipoSeguro;
   this.idMoneda = crearseguroIncendio.idMoneda;
   this.idTipoCliente = crearseguroIncendio.idTipoCliente;
@@ -14,9 +14,10 @@ const CrearSeguroIncendio = function CrearSeguroIncendio(crearseguroIncendio){
   this.TipoIncendio = crearseguroIncendio.TipoIncendio;
 };
 
-CrearSeguroIncendio.crear = (nuevoseguroincendio, result) =>{
-    const request = sql.request();
+CrearSeguroIncendio.crear = (nuevoseguroincendio, result) => {
+  const request = sql.request();
   request.input("idAsegurador", nuevoseguroincendio.idAsegurador);
+  request.input("idUsuario", nuevoseguroincendio.idUsuario);
   request.input("idTipoSeguro", nuevoseguroincendio.idTipoCliente);
   request.input("idMoneda", nuevoseguroincendio.idMoneda);
   request.input("TipoCliente", nuevoseguroincendio.idTipoCliente);
@@ -33,7 +34,6 @@ CrearSeguroIncendio.crear = (nuevoseguroincendio, result) =>{
     }
 
     result(null, {
-     
       ...nuevoseguroincendio,
     });
 
@@ -43,6 +43,6 @@ CrearSeguroIncendio.crear = (nuevoseguroincendio, result) =>{
       return;
     }
   });
-}
+};
 
 module.exports = CrearSeguroIncendio;

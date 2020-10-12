@@ -1,4 +1,4 @@
-const CrearSeguro = require("../../modelos/seguro/modelo.CrearSeguro");
+const CrearSeguroTransporte = require("../../modelos/seguro/modelo.CrearSeguroTransporte");
 
 exports.crear = (req, res) => {
   if (!req.params) {
@@ -7,8 +7,9 @@ exports.crear = (req, res) => {
     });
   }
 
-  const crearSeguro = new CrearSeguro({
+  const crearSeguroTransporte = new CrearSeguroTransporte({
     idAsegurador: req.query.idAsegurador,
+    idUsuario: req.query.idUsuario,
     idTipoSeguro: req.query.idTipoSeguro,
     idMoneda: req.query.idMoneda,
     idTipoCliente: req.query.idTipoCliente,
@@ -17,9 +18,13 @@ exports.crear = (req, res) => {
     precio: req.query.precio,
     fechaPago: req.query.fechaPago,
     fechaVencido: req.query.fechaVencido,
+    idMarca: req.query.idMarca,
+    idTipoTransporte: req.query.idTipoTransporte,
+    Matricula: req.query.Matricula,
+    Año: req.query.Año,
   });
 
-  CrearSeguro.crear(crearSeguro, (err, data) => {
+  CrearSeguroTransporte.crear(crearSeguroTransporte, (err, data) => {
     if (err) {
       res.status(500).send({
         message: err.message || "Ha ocurrido un error al crear el seguro.",
