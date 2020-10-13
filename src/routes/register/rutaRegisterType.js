@@ -6,9 +6,6 @@ module.exports = app =>{
 		res.render('register.ejs')	
 	})
 	
-	app.post('/register', aut.checkNotAutehtnicated, (req,res) =>{
-		
-	})
 	
 }
 

@@ -10,18 +10,18 @@ exports.crear = (req, res) => {
   }
 
   const crearSeguroVidaPersonal = new CrearSeguroVidaPersonal({
-    idAsegurador: req.query.idAsegurador,
-    idUsuario: req.query.idUsuario,
-    idTipoSeguro: req.query.idTipoSeguro,
-    idMoneda: req.query.idMoneda,
-    idTipoCliente: req.query.idTipoCliente,
-    Poliza: req.query.Poliza,
-    intermediario: req.query.intermediario,
-    precio: req.query.precio,
-    fechaPago: req.query.fechaPago,
-    fechaVencido: req.query.fechaVencido,
-    Profesion: req.query.Profesion,
-    RazonCompra: req.query.RazonCompra,
+    idAsegurador: req.body.idAsegurador,
+    idUsuario: req.body.idUsuario,
+    idTipoSeguro: req.body.idTipoSeguro,
+    idMoneda: req.body.idMoneda,
+    idTipoCliente: req.body.idTipoCliente,
+    Poliza: req.body.Poliza,
+    intermediario: req.body.intermediario,
+    precio: req.body.precio,
+    fechaPago: req.body.fechaPago,
+    fechaVencido: req.body.fechaVencido,
+    Profesion: req.body.Profesion,
+    RazonCompra: req.body.RazonCompra,
   });
 
   CrearSeguroVidaPersonal.crear(crearSeguroVidaPersonal, (err, data) => {

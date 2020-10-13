@@ -1,0 +1,31 @@
+<h1>Registrar Seguro</h1>
+
+
+<% if (user.idTipoUsuario == 2) { %>
+
+<form action="/Registrar/Seguro/Incendio" method="GET">
+    <button type="submit" id="Incendio" name="Incendio">Incendio</button>
+</form>
+
+
+<form action="/Registrar/Seguro/VidaColectiva" method="GET">
+    <button type="submit" id="VidaColectiva" name="VidaColectiva" style="display: inline;">Vida Colectiva</button>
+</form>
+
+<% } %>
+
+<% if (user.idTipoUsuario == 1) { %>
+    <form action="/Registrar/Seguro/Salud" method="GET">
+        <button type="submit" id="Salud" name="Salud" style="display: inline;">Salud</button>
+    </form>
+<form action="/Registrar/Seguro/VidaPersonal" method="GET">
+    <button type="submit" id="VidaPersonal" name="VidaPersonal" style="display: inline;">Vida Personal</button>
+</form>
+
+<% } %>
+
+
+<form action="/Registrar/Seguro/Transporte" method="GET">
+    <button type="submit" id="Transporte" name="Transporte" style="display: inline;">Transporte</button>
+</form>
+

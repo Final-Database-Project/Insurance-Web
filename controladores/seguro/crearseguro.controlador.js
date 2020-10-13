@@ -8,15 +8,15 @@ exports.crear = (req, res) => {
 	}
 
 	const crearSeguro = new CrearSeguro({
-		idAsegurador: req.query.idAsegurador,
-		idTipoSeguro: req.query.idTipoSeguro,
-		idMoneda: req.query.idMoneda,
-		idTipoCliente: req.query.idTipoCliente,
-		Poliza: req.query.Poliza,
-		intermediario: req.query.intermediario,
-		precio: req.query.precio,
-		fechaPago: req.query.fechaPago,
-		fechaVencido: req.query.fechaVencido,
+		idAsegurador: req.body.idAsegurador,
+		idTipoSeguro: req.body.idTipoSeguro,
+		idMoneda: req.body.idMoneda,
+		idTipoCliente: req.body.idTipoCliente,
+		Poliza: req.body.Poliza,
+		intermediario: req.body.intermediario,
+		precio: req.body.precio,
+		fechaPago: req.body.fechaPago,
+		fechaVencido: req.body.fechaVencido,
 	});
 
 	CrearSeguro.crear(crearSeguro, (err, data) => {

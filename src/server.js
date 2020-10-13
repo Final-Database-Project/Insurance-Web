@@ -49,10 +49,10 @@ require("./routes/register/rutaRegisterType")(app);
 require("./routes/register/rutaRegisterEmpresarial")(app);
 require("./routes/register/rutaRegisterPersonal")(app);
 require("./routes/usuarios/rutasUsuarioEmpresarial")(app);
-require("./routes/seguros/rutaCrearSeguro")(app);
 require("./routes/usuarios/rutasUsuarioPersonal")(app);
 require("./routes/home/rutasHome")(app);
-require("./routes/home/rutasHome");
+require("./routes/home/rutasHome")(app);
+require("./routes/seguros/rutaCrearSeguro")(app);
 require("./routes/seguros/rutaCrearSeguroIncendio")(app);
 require("./routes/seguros/rutaCrearSeguroSalud")(app);
 require("./routes/seguros/rutaCrearSeguroTransporte")(app);
@@ -67,6 +67,7 @@ app.get("/logout", aut.checkAuthenticated, (req, res) => {
   req.logOut();
   res.redirect("/login");
 });
+
 
 // set port, listen for requests
 app.listen(port, () => {

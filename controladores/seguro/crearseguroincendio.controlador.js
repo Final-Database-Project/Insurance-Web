@@ -9,17 +9,17 @@ exports.crear = (req, res) => {
   }
 
   const crearSeguroIncendio = new CrearSeguroIncendio({
-    idAsegurador: req.query.idAsegurador,
-    idUsuario: req.query.idUsuario,
-    idTipoSeguro: req.query.idTipoSeguro,
-    idMoneda: req.query.idMoneda,
-    idTipoCliente: req.query.idTipoCliente,
-    Poliza: req.query.Poliza,
-    intermediario: req.query.intermediario,
-    precio: req.query.precio,
-    fechaPago: req.query.fechaPago,
-    fechaVencido: req.query.fechaVencido,
-    TipoIncendio: req.query.TipoIncendio,
+    idAsegurador: req.body.idAsegurador,
+    idUsuario: req.body.idUsuario,
+    idTipoSeguro: req.body.idTipoSeguro,
+    idMoneda: req.body.idMoneda,
+    idTipoCliente: req.body.idTipoCliente,
+    Poliza: req.body.Poliza,
+    intermediario: req.body.intermediario,
+    precio: req.body.precio,
+    fechaPago: req.body.fechaPago,
+    fechaVencido: req.body.fechaVencido,
+    TipoIncendio: req.body.TipoIncendio,
   });
 
   CrearSeguroIncendio.crear(crearSeguroIncendio, (err, data) => {
