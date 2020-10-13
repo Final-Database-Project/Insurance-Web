@@ -37,7 +37,6 @@ Perfil.findByEmail = (Correo, result) => {
 							result({ kind: "no encontrado" }, null);
 							return;
 						}
-						console.log(res.recordset[0])
 						result(null, res.recordset[0]);
 					}
 				);

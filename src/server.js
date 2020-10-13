@@ -11,7 +11,6 @@ const passport = require("passport");
 const sql = require("./index");
 const render = require("ejs");
 const aut = require("./Checkautentification");
-const methodOverride = require("method-override");
 
 const app = express();
 const port = 3000;
@@ -31,6 +30,7 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.set('views', __dirname + '/views');
 app.use(function (req, res, next) {
   res.locals.success_mg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
@@ -41,7 +41,7 @@ app.use(function (req, res, next) {
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(methodOverride("_method"));
+
 require("./passport-config")(passport);
 
 require("./routes/login/rutaLogin")(app);

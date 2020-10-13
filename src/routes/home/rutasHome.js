@@ -7,7 +7,6 @@ module.exports = app => {
     //app.get("/Home", home.findByEmail);
     app.get("/home", aut.checkAuthenticated, (req,res) => {
         home.findByEmail(req.user.Correo, (err, home) =>{ 
-            console.log(home)
             res.render('home.ejs', {data: { user: req.user, homedata: home}})
         });
         

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link rel="stylesheet"   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css">
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Hi <%= data.user.Nombre %> <%= data.user.Apellido %> </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#"><%= data.user.Nombre %> <%= data.user.Apellido %> </a>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
         </ul>
+        <a href="/login" class="mx-5">Registar Seguro</a>
         <form class="form-inline my-2 my-lg-0" action="/logout">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
         </form>
@@ -23,74 +30,189 @@
 </head>
 
 <style>
-h1{
-  display: flex;
-  flex-direction: row;
+
+a{
+  color: white;
 }
+
+  table{
+    text-align: justify;
+  }
+
+tr.hide-table-padding td {
+  padding: 0;
+  margin: 0;
+}
+
+.expand-button {
+	position: relative;
+}
+
+
 
 </style>
 <body>
-  <table class="table" >
-  <% if (data.user.idTipoUsuario == 1) { %>
+  <table class="table" width="100%"  cellspacing="0">
     <thead class="thead-dark">
-      <th scope="col">Firstname</th>
-      <th scope="col">Lastname</th> 
-      <th scope="col">Direccion</th>
-      <th scope="col">Cedula</th>
-      <th scope="col">
-        <form action="">
-          <button type="button" class="btn btn-success" ><i class="fas fa-plus"></i></button>
-        </form>
-      </th>
+      <th scope="col" class="th-sm">#</th> 
+      <th scope="col" class="th-sm">Tipo</th>
+      <th scope="col" class="th-sm">Asegurador</th> 
+      <th scope="col" class="th-sm">Pecio</th>
+      <th scope="col" class="th-sm">Fecha de Pago</th>
+      <th scope="col" class="th-sm">Fecha de Vencimiento</th>
+      <th scope="col" class="th-sm">Accion</th>
+      
     </thead>
     <tbody>
-      <tr>
-      <td><%= data.user.Nombre %></td>
-      <td><%= data.user.Apellido %></td>
-      <td><%= data.user.Direccion %></td>
-      <td><%= data.user.Cedula %></td>
-      
-    </tr>
       <% for(var i=0; i < data.homedata.length; i++) { %>
-        <tr>
-          <td><%= data.homedata[i].Precio %> </td>
-          <td><%= data.homedata[i].NombreAsegurador %> </td>
-          <td><%= data.homedata[i].Direccion %></td>
-          <td><%= data.homedata[i].NumeroTelefono %></td>
-          <td><%= data.homedata[i].NombreTipoSeguro %></td>
+        <tr>          
+          <td class="accordion-toggle collapsed expand-button  " scope="row" data-toggle="collapse"  href="#collapse<%=i%>"><%= i+1%></td>
+          <td scope="row"  class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>"><%= data.homedata[i].NombreTipoSeguro %> </td>
+          <td scope="row"  class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>"><%= data.homedata[i].NombreAsegurador %> </td>
+          <% if (data.homedata[i].NombreMoneda == 'Peso Dominicano') {%>
+          <td scope="row"  class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>">RD$<%= data.homedata[i].Precio %></td>
+          <% } %>
+          <% if (data.homedata[i].NombreMoneda == 'Dolar americano') {%>
+            <td scope="row"  class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>">$<%= data.homedata[i].Precio %></td>
+          <% } %>
+          <% if (data.homedata[i].NombreMoneda == 'Euro') {%>
+            <td scope="row"  class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>"><%= data.homedata[i].Precio %>€</td>
+          <% } %>
+          <% if (!data.homedata[i].FechaPago) {%>
+            <td scope="row"  class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>">No establecida</td> 
+          <% } %>
 
+          <% if (data.homedata[i].FechaPago) {%>
+            <td scope="row" class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>"><%= data.homedata[i].FechaPago %></td>
+          <% } %>
+
+          <% if (!data.homedata[i].FechaVencimiento) {%>
+            <td scope="row" class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>">No establecida</td> 
+          <% } %>
+
+          <% if (data.homedata[i].FechaVencimiento) {%>
+            <td scope="row" class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>"><%= data.homedata[i].FechaVencimiento %></td>  
+          <% } %>
+          <td>
+          <a class="btn btn-success edit"  href="../books/edit/<%=data.homedata[i].idSeguro%>" data-toggle="modal" data-target="#MyModal<%=i%>"  data-id=<%=data.homedata[i].idSeguro%>>Edit</a>
+          </td>
+
+          
         </tr>
+        
+        <tr class="hide-table-paddding">
+          <td colspan="4">
+            <div id="collapse<%=i%>" class="collapse in p-3">
+              <% if (data.homedata[i].NombreTipoSeguro == 'Vida') {%>
+                
+            <div class="row">
+              <div class="col-4">Profesion:</div>
+              <div class="col-6"><%=data.homedata[i].Profesion%></div>
+            </div>
+            <div class="row">
+              <div class="col-4">Razon de Compra:</div>
+              <div class="col-6"><%=data.homedata[i].RazonCompra%></div>
+            </div>
+            <% } %>
+            <% if (data.homedata[i].NombreTipoSeguro == 'Medio Transporte') {%>
+              <div class="row">
+                <div class="col-4">Tipo de Transporte:</div>
+                <div class="col-6"><%=data.homedata[i].NombreTipoTransporte%></div>
+              </div>
+              <div class="row">
+                <div class="col-4">Marca</div>
+                <div class="col-6"><%=data.homedata[i].NombreMarca%></div>
+              </div>
+              <div class="row">
+                <div class="col-4">Modelo</div>
+                <div class="col-6"><%=data.homedata[i].NombreModelo%></div>
+              </div>
+              <div class="row">
+                <div class="col-4">Año</div>
+                <div class="col-6"><%=data.homedata[i].Año%></div>
+              </div>
+              <div class="row">
+                <div class="col-4">Matricula</div>
+                <div class="col-6"><%=data.homedata[i].Matricula%></div>
+              </div>
+              <% } %>
+              <% if (data.homedata[i].NombreTipoSeguro == 'Salud') {%>
+                <div class="row">
+                  <div class="col-4">Parentesco:</div>
+                  <div class="col-6"><%=data.homedata[i].Parentesco%></div>
+                </div>
+                <div class="row">
+                  <div class="col-4">Plan:</div>
+                  <div class="col-6"><%=data.homedata[i].NombrePlan%></div>
+                </div>
+                <div class="row">
+                  <div class="col-4">Descripcion:</div>
+                  <div class="col-6"><%=data.homedata[i].Descripcion%></div>
+                </div>
+              <% } %>
+              <% if (data.homedata[i].NombreTipoSeguro == 'Vida Colectiva') {%>
+                <div class="row">
+                  <div class="col-4">Edad Promedio:</div>
+                  <div class="col-6"><%=data.homedata[i].EdadPromedio%></div>
+                </div>
+                <div class="row">
+                  <div class="col-4">Cantidad de Asegurados:</div>
+                  <div class="col-6"><%=data.homedata[i].CantidadAsegurados%></div>
+                </div>
+              <% } %>
+
+          </div>
+          </td>
+        </tr>
+
+        <!-- Modal -->
+        <div class="modal fade" id="MyModal<%=i%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="/hello" method="GET" >
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Id Seguro:</label>
+                    <input type="text" class="form-control" id="recipient-name" value="<%=data.homedata[i].idSeguro%>">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Send message</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+
+</body>
+
       <% } %>
   </tbody>
 </table>
-  <% } %> 
-  <% if (data.user.idTipoUsuario == 2){ %>
-  <table>
-  <thead class="thead-dark">
-    <tr>
-      <th>Nombre</th>
-      <th>Direccion</th> 
-      <th>Numero Telefonico</th>
-      <th>RNC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= data.user.Nombre %></td>
-      <td><%= data.user.Direccion %></td>
-      <td><%= data.user.NumeroTelefonico %></td>
-      <td><%= data.user.RNC %></td>
-    </tr>
-  </tbody>
-  <% } %> 
 
-  </table>
-</body>
+<% if(!data.homedata.length) { %>
+  <p class="text-center">No tiene seguros registrados</p>
+<% } %>
 
-<script>
-  function test(){
-    console.log("asi no")
-  }
-</script>
+
+
+
+
+
+
+
+
 
 </html>
