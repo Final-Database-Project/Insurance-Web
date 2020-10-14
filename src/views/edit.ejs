@@ -131,6 +131,7 @@ form > div{
       <% if (seguro.NombreTipoSeguro == "Vida") { %>
         <div class="form-group">
             <label for="Profesion">Profesión</label>
+            <select id="Profesion" class="form-control" name="Profesion" required> 
               <% for( let i = 0; i < info[5].length; i++ ) { %>
                 <% if (seguro.NombreProfesion == info[5][i].NombreProfesion) { %>
                     <option selected="selected"><%=info[5][i].NombreProfesion%></option>
@@ -235,7 +236,7 @@ form > div{
      </div>
      <div class="form-group">
       <label for="FechaVencimiento">Fecha de Vencimiento</label>
-      <input type='date' class="form-control" id='FechaVencimiento' name="FechaVencimiento" value="<%=seguro.FechaVencimeinto%>" placeholder="Fecha de Vencimiento"/>
+      <input type='date' class="form-control" id='FechaVencimiento' name="FechaVencimiento" value="<%=seguro.FechaVencimiento%>" placeholder="Fecha de Vencimiento"/>
    </div>
 
           <div class="form-group">
@@ -245,9 +246,4 @@ form > div{
  
 </body>
 
-
-<script>
-    document.getElementById("FechaPago").value = seguro.FechaPago
-    document.getElementById("FechaVencimiento").value = seguro.FechaVencimiento
-</script>
  </html>

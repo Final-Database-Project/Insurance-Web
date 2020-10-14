@@ -23,7 +23,7 @@ module.exports = (app) => {
     require.execute("SP_Select_Info_Seguro_By_id_Personal", (err, data) =>{
         if(err) throw err 
 
-        console.log(data.recordset[0])
+        console.log("Data Personal: ", data.recordset[0])
         infoseguro.getInfo((err, information) =>{
 
 
@@ -32,7 +32,6 @@ module.exports = (app) => {
           if(data.recordset[0].FechaPago)
           data.recordset[0].FechaPago = moment(data.recordset[0].FechaPago).format('YYYY-MM-DD')
 
-          console.log("Recordset: ", data.recordset[0])
           res.render('edit.ejs', {user: req.user, seguro: data.recordset[0], info: information})
         })
 
@@ -41,7 +40,6 @@ module.exports = (app) => {
   else if(req.user.idTipoUsuario == 2){
     require.execute("SP_Select_Info_Seguro_By_Empresarial", (err, data) =>{
       if(err) throw err 
-
       infoseguro.getInfo((err, information) =>{
 
             if (data.recordset[0].FechaVencimiento)
@@ -49,7 +47,6 @@ module.exports = (app) => {
             if(data.recordset[0].FechaPago)
             data.recordset[0].FechaPago = moment(data.recordset[0].FechaPago).format('YYYY-MM-DD')
 
-        console.log("Recordset: ", data.recordset[0])
         res.render('edit.ejs', {user: req.user, seguro: data.recordset[0], info: information})
       })
   })
