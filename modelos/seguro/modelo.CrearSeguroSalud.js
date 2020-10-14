@@ -35,15 +35,12 @@ CrearSeguroSalud.crear = (nuevoseguroSalud, result) => {
       result(err, null);
     }
 
+    console.log(res.recordsets)
+
     result(null, {
       ...nuevoseguroSalud,
     });
 
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
   });
 };
 
