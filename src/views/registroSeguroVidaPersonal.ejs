@@ -21,7 +21,7 @@
           </div>
           </div>
         </nav>
-        <h1>Registrar Seguro de Incendio</h1>
+        <h1>Registrar Seguro de Vida</h1>
     </head>
     <style>
 
@@ -107,13 +107,13 @@ form > div{
         <label for="Profesion">Profesión</label>
         <select id="Profesion" class="form-control" name="Profesion" required> 
           <option>Seleccione uno...</option>
-          <% for( let i = 0; i < info[4].length; i++ ) { %>
+          <% for( let i = 0; i < info[5].length; i++ ) { %>
             <option><%=info[5][i].NombreProfesion%></option>
           <% } %>
         </select>
     </div>
     <div class="form-group">
-      <label for="RazonCompra">Razón Compra</label>
+      <label for="RazonCompra">Razon Compra</label>
       <input type="text" class="form-control" id="RazonCompra" aria-describedby="RazonCompra" placeholder="RazonCompra" name="RazonCompra" maxlength="12" >
     </div>
       <div class="form-group">
