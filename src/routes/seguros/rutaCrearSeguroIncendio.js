@@ -4,7 +4,7 @@ module.exports = app => {
     const infoseguro = require('../../../controladores/seguro/infoseguro.comtrolador')
 
 
-    app.post("/Registrar/Seguro/Incendio", crearSeguroIncendio.crear);
+    app.post("/Registrar/Seguro/Incendio", aut.checkAuthenticated, crearSeguroIncendio.crear);
 
     app.get('/Registrar/Seguro/Incendio', aut.checkAuthenticated, (req, res) =>{
         infoseguro.getInfo( (request, data) =>{

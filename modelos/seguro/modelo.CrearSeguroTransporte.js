@@ -5,7 +5,6 @@ const CrearSeguroTransporte = function CrearSeguroTransporte(
 ) {
   this.idAsegurador = crearseguroTransporte.idAsegurador;
   this.idUsuario = crearseguroTransporte.idUsuario;
-  this.idTipoSeguro = crearseguroTransporte.idTipoSeguro;
   this.idMoneda = crearseguroTransporte.idMoneda;
   this.idTipoCliente = crearseguroTransporte.idTipoCliente;
   this.Poliza = crearseguroTransporte.Poliza;
@@ -23,7 +22,6 @@ CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
   const request = sql.request();
   request.input("TipoAsegurador", nuevoseguroTransporte.idAsegurador);
   request.input("idUsuario", nuevoseguroTransporte.idUsuario);
-  request.input("TipoSeguro", nuevoseguroTransporte.idTipoCliente);
   request.input("moneda", nuevoseguroTransporte.idMoneda);
   request.input("TipoCliente", nuevoseguroTransporte.idTipoCliente);
   request.input("Poliza", nuevoseguroTransporte.Poliza);
@@ -43,6 +41,7 @@ CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
     }
 
     result(null,res)
+    return;
 
   });
 };

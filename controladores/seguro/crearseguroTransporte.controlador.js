@@ -10,7 +10,6 @@ exports.crear = (req, res) => {
   const crearSeguroTransporte = new CrearSeguroTransporte({
     idAsegurador: req.query.idAsegurador,
     idUsuario: req.query.idUsuario,
-    idTipoSeguro: req.query.idTipoSeguro,
     idMoneda: req.query.idMoneda,
     idTipoCliente: req.query.idTipoCliente,
     Poliza: req.query.Poliza,

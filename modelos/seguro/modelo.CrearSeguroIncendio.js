@@ -2,8 +2,7 @@ const sql = require("../../src/index");
 
 const CrearSeguroIncendio = function CrearSeguroIncendio(crearseguroIncendio) {
   this.idAsegurador = crearseguroIncendio.idAsegurador;
-  this.idUsuario = crearseguroTransporte.idUsuario;
-  this.idTipoSeguro = crearseguroIncendio.idTipoSeguro;
+  this.idUsuario = crearseguroIncendio.idUsuario;
   this.idMoneda = crearseguroIncendio.idMoneda;
   this.idTipoCliente = crearseguroIncendio.idTipoCliente;
   this.Poliza = crearseguroIncendio.Poliza;
@@ -16,10 +15,9 @@ const CrearSeguroIncendio = function CrearSeguroIncendio(crearseguroIncendio) {
 
 CrearSeguroIncendio.crear = (nuevoseguroincendio, result) => {
   const request = sql.request();
-  request.input("idAsegurador", nuevoseguroincendio.idAsegurador);
+  request.input("TipoAsegurador", nuevoseguroincendio.idAsegurador);
   request.input("idUsuario", nuevoseguroincendio.idUsuario);
-  request.input("idTipoSeguro", nuevoseguroincendio.idTipoCliente);
-  request.input("idMoneda", nuevoseguroincendio.idMoneda);
+  request.input("moneda", nuevoseguroincendio.idMoneda);
   request.input("TipoCliente", nuevoseguroincendio.idTipoCliente);
   request.input("Poliza", nuevoseguroincendio.Poliza);
   request.input("intermediario", nuevoseguroincendio.intermediario);
@@ -33,15 +31,8 @@ CrearSeguroIncendio.crear = (nuevoseguroincendio, result) => {
       result(err, null);
     }
 
-    result(null, {
-      ...nuevoseguroincendio,
-    });
+    result(null, res)
 
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
   });
 };
 
