@@ -51,7 +51,7 @@ require("./routes/register/rutaRegisterPersonal")(app);
 require("./routes/usuarios/rutasUsuarioEmpresarial")(app);
 require("./routes/usuarios/rutasUsuarioPersonal")(app);
 require("./routes/home/rutasHome")(app);
-require("./routes/home/rutasHome")(app);
+require("./routes/home/rutaEliminarSeguro")(app);
 require("./routes/seguros/rutaCrearSeguro")(app);
 require("./routes/seguros/rutaCrearSeguroIncendio")(app);
 require("./routes/seguros/rutaCrearSeguroSalud")(app);
