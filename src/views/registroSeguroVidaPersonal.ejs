@@ -103,9 +103,18 @@ form > div{
           <% } %>
         </select>
       </div>
-      <div class="form-group">
-        <label for="TipoIncendio">Tipo de Incendio</label>
-        <input type="text" class="form-control" id="TipoIncendio" aria-describedby="TipoIncendio" placeholder="Tipo de Incendio" maxlength="50" name="TipoIncendio" >
+     <div class="form-group">
+        <label for="Profesion">Profesión</label>
+        <select id="Profesion" class="form-control" name="Profesion" required> 
+          <option>Seleccione uno...</option>
+          <% for( let i = 0; i < info[4].length; i++ ) { %>
+            <option><%=info[4][i].NombreProfesion%></option>
+          <% } %>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="RazonCompra">Razón Compra</label>
+      <input type="text" class="form-control" id="RazonCompra" aria-describedby="RazonCompra" placeholder="RazonCompra" name="RazonCompra" maxlength="12" >
     </div>
       <div class="form-group">
         <label for="FechaPago">Fecha de Pago</label>
