@@ -7,9 +7,9 @@ module.exports = app => {
     app.post("/Registrar/Seguro/Incendio", crearSeguroIncendio.crear);
 
     app.get('/Registrar/Seguro/Incendio', aut.checkAuthenticated, (req, res) =>{
-        infoseguro.getInfo( (req, data) =>{
+        infoseguro.getInfo( (request, data) =>{
             console.log("Data: ", data)
-            res.render('registroSeguroIncendio.ejs', {info: data})
+            res.render('registroSeguroIncendio.ejs', {info: data, user: req.user})
         })
     } )
 }
