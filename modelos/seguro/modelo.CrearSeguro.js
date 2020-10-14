@@ -4,7 +4,6 @@ const sql = require("../../src/index");
 
 const CrearSeguro = function CrearSeguro(crearSeguro) {
   this.idAsegurador = crearSeguro.idAsegurador;
-  this.idTipoSeguro = crearSeguro.idTipoSeguro;
   this.idMoneda = crearSeguro.idMoneda;
   this.idTipoCliente = crearSeguro.idTipoCliente;
   this.Poliza = crearSeguro.Poliza;
@@ -17,7 +16,6 @@ const CrearSeguro = function CrearSeguro(crearSeguro) {
 CrearSeguro.crear = (nuevoseguro, result) => {
   const request = sql.request();
   request.input("idAsegurador", nuevoseguro.idAsegurador);
-  request.input("idTipoSeguro", nuevoseguro.idTipoCliente);
   request.input("idMoneda", nuevoseguro.idMoneda);
   request.input("TipoCliente", nuevoseguro.idTipoCliente);
   request.input("Poliza", nuevoseguro.Poliza);
@@ -31,16 +29,8 @@ CrearSeguro.crear = (nuevoseguro, result) => {
       result(err, null);
     }
 
-    result(null, {
-     
-      ...nuevoseguro,
-    });
+    result(null, res)
 
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
   });
 };
 

@@ -25,6 +25,11 @@ exports.crear = (req, res) => {
 				message:
 					err.message || "Ha ocurrido un error al crear el seguro.",
 			});
-		} else res.send(data);
+		}
+		
+		console.log("redirecting success...")
+		res.redirect('/home')
+		return;
+	
 	});
 };
