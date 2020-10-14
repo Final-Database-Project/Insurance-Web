@@ -1,12 +1,14 @@
 module.exports = app => {
     const crearSeguroTransporte = require("../../../controladores/seguro/crearseguroTransporte.controlador")
-    const cors = require('cors')
     const aut = require('../../Checkautentification')
+    const infoseguro = require('../../../controladores/seguro/infoseguro.comtrolador')
 
 
-    app.post("/crearSeguroTransporte", cors(), crearSeguroTransporte.crear);
+    app.post("/Registrar/Seguro/Transporte", aut.checkAuthenticated, crearSeguroTransporte.crear);
 
     app.get('/Registrar/Seguro/Transporte', aut.checkAuthenticated, (req, res) =>{
-        res.render('registroSeguroTransporte.ejs')
+        infoseguro.getInfo( (request, data) =>{
+        res.render('registroSeguroTransporte.ejs', {info: data, user: req.user})
+        })
     } )
 }

@@ -2,13 +2,15 @@ const CrearSeguroVidaPersonal = require("../../../modelos/seguro/modelo.CrearSeg
 
 module.exports = (app) => {
   const crearSeguroVidaPersonal = require("../../../controladores/seguro/crearseguroVidaPersonal.controlador");
-  const cors = require("cors");
   const aut = require('../../Checkautentification')
+  const infoseguro = require('../../../controladores/seguro/infoseguro.comtrolador')
 
 
-  app.post("/crearSeguroVidaPersonal", cors(), crearSeguroVidaPersonal.crear);
+  app.post("/Registrar/Seguro/VidaPersonal", aut.checkAuthenticated, crearSeguroVidaPersonal.crear);
 
   app.get('/Registrar/Seguro/VidaPersonal', aut.checkAuthenticated, (req, res) =>{
-    res.render('registroSeguroVidaPersonal.ejs')
+    infoseguro.getInfo( (request, data) =>{
+    res.render('registroSeguroVidaPersonal.ejs', {info: data, user: req.user})
+    })
 } )
 };

@@ -1,12 +1,14 @@
 module.exports = app => {
     const crearSeguroVidaColectiva = require("../../../controladores/seguro/crearseguroVidaColectiva.controlador")
-    const cors = require('cors')
     const aut = require('../../Checkautentification')
+    const infoseguro = require('../../../controladores/seguro/infoseguro.comtrolador')
 
 
-    app.post("/crearSeguroVidaColectiva", cors(), crearSeguroVidaColectiva.crear);
+    app.post("/Registrar/Seguro/VidaColectiva", aut.checkAuthenticated, crearSeguroVidaColectiva.crear);
 
     app.get('/Registrar/Seguro/VidaColectiva', aut.checkAuthenticated, (req, res) =>{
-        res.render('registroSeguroVidaColectiva.ejs')
+        infoseguro.getInfo( (request, data) =>{
+        res.render('registroSeguroVidaColectiva.ejs', {info: data, user: req.user})
+        })
     } )
 }

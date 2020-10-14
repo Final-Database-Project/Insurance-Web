@@ -4,7 +4,7 @@ const CrearSeguroVidaColectiva = function CrearSeguroVidaColectiva(
   crearSeguroVida
 ) {
   this.idAsegurador = crearSeguroVida.idAsegurador;
-  this.idUsuario = crearseguroTransporte.idUsuario;
+  this.idUsuario = crearSeguroVida.idUsuario;
   this.idTipoSeguro = crearSeguroVida.idTipoSeguro;
   this.idMoneda = crearSeguroVida.idMoneda;
   this.idTipoCliente = crearSeguroVida.idTipoCliente;
@@ -21,9 +21,8 @@ CrearSeguroVidaColectiva.crear = (nuevoseguroVida, result) => {
   const request = sql.request();
   request.input("idAsegurador", nuevoseguroVida.idAsegurador);
   request.input("idUsuario", nuevoseguroVida.idUsuario);
-  request.input("idTipoSeguro", nuevoseguroVida.idTipoCliente);
   request.input("idMoneda", nuevoseguroVida.idMoneda);
-  request.input("TipoCliente", nuevoseguroVida.idTipoCliente);
+  request.input("idTipoCliente", nuevoseguroVida.idTipoCliente);
   request.input("Poliza", nuevoseguroVida.Poliza);
   request.input("intermediario", nuevoseguroVida.intermediario);
   request.input("Precio", nuevoseguroVida.precio);

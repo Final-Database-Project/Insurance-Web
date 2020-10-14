@@ -2,7 +2,7 @@ const sql = require("../../src/index");
 
 const CrearSeguroSalud = function CrearSeguroSalud(crearSeguroSalud) {
   this.idAsegurador = crearSeguroSalud.idAsegurador;
-  this.idUsuario = crearseguroTransporte.idUsuario;
+  this.idUsuario = crearSeguroSalud.idUsuario;
   this.idMoneda = crearSeguroSalud.idMoneda;
   this.idTipoCliente = crearSeguroSalud.idTipoCliente;
   this.Poliza = crearSeguroSalud.Poliza;
@@ -19,7 +19,7 @@ CrearSeguroSalud.crear = (nuevoseguroSalud, result) => {
   request.input("idAsegurador", nuevoseguroSalud.idAsegurador);
   request.input("idUsuario", nuevoseguroSalud.idUsuario);
   request.input("idMoneda", nuevoseguroSalud.idMoneda);
-  request.input("TipoCliente", nuevoseguroSalud.idTipoCliente);
+  request.input("idTipoCliente", nuevoseguroSalud.idTipoCliente);
   request.input("Poliza", nuevoseguroSalud.Poliza);
   request.input("intermediario", nuevoseguroSalud.intermediario);
   request.input("Precio", nuevoseguroSalud.precio);
