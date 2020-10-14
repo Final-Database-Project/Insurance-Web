@@ -6,21 +6,54 @@ exports.crear = (req, res) => {
       message: "El contenido no puede estar vacio!",
     });
   }
+  var idMoneda = null;
+  var idAsegurador = null;
+  var idTipoCliente = null;
+
+
+    if(req.body.Moneda == "Peso Dominicano"){
+      idMoneda = 1
+      
+    }else if(req.body.Moneda == "Dolar americano"){
+      idMoneda = 2
+
+    }else if(req.body.Moneda == "Euro"){
+      idMoneda = 3
+    }
+
+    if(req.body.Asegurador == "Sura"){
+      idAsegurador = 1
+
+    }else if(req.body.Asegurador == "Colonial" ){
+      idAsegurador = 2
+      
+    }else if(req.body.Asegurador = "BanReservas"){
+      idAsegurador = 3
+    }
+
+
+    if(req.body.TipoCliente == "Nacional"){
+      idTipoCliente = 1
+
+    }else if(req.body.TipoCliente == "Internacional"){
+      idTipoCliente = 2
+
+    }
 
   const crearSeguroTransporte = new CrearSeguroTransporte({
-    idAsegurador: req.query.idAsegurador,
-    idUsuario: req.query.idUsuario,
-    idMoneda: req.query.idMoneda,
-    idTipoCliente: req.query.idTipoCliente,
-    Poliza: req.query.Poliza,
-    intermediario: req.query.intermediario,
-    precio: req.query.precio,
-    fechaPago: req.query.fechaPago,
-    fechaVencido: req.query.fechaVencido,
-    idModelo: req.query.idModelo,
-    idTipoTransporte: req.query.idTipoTransporte,
-    Matricula: req.query.Matricula,
-    Año: req.query.Año,
+    idAsegurador: idAsegurador,
+    idUsuario: req.user.idUsuario,
+    idMoneda: idMoneda,
+    idTipoCliente: idTipoCliente,
+    Poliza: req.body.Poliza,
+    intermediario: req.body.intermediario,
+    precio: req.body.precio,
+    fechaPago: req.body.fechaPago,
+    fechaVencido: req.body.fechaVencido,
+    idModelo: req.body.idModelo,
+    idTipoTransporte: req.body.idTipoTransporte,
+    Matricula: req.body.Matricula,
+    Año: req.body.Año,
   });
 
   CrearSeguroTransporte.crear(crearSeguroTransporte, (err, data) => {

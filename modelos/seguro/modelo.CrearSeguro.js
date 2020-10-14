@@ -17,7 +17,7 @@ CrearSeguro.crear = (nuevoseguro, result) => {
   const request = sql.request();
   request.input("idAsegurador", nuevoseguro.idAsegurador);
   request.input("idMoneda", nuevoseguro.idMoneda);
-  request.input("TipoCliente", nuevoseguro.idTipoCliente);
+  request.input("idTipoCliente", nuevoseguro.idTipoCliente);
   request.input("Poliza", nuevoseguro.Poliza);
   request.input("intermediario", nuevoseguro.intermediario);
   request.input("Precio", nuevoseguro.precio);

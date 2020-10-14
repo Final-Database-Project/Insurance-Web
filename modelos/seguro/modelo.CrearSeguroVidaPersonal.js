@@ -4,7 +4,7 @@ const CrearSeguroVidaPersonal = function CrearSeguroVidaPersonal(
   crearseguroVidaPersonal
 ) {
   this.idAsegurador = crearseguroVidaPersonal.idAsegurador;
-  this.idUsuario = crearseguroTransporte.idUsuario;
+  this.idUsuario = crearseguroVidaPersonal.idUsuario;
   this.idTipoSeguro = crearseguroVidaPersonal.idTipoSeguro;
   this.idMoneda = crearseguroVidaPersonal.idMoneda;
   this.idTipoCliente = crearseguroVidaPersonal.idTipoCliente;
@@ -23,7 +23,7 @@ CrearSeguroVidaPersonal.crear = (nuevoseguroVidaPersonal, result) => {
   request.input("idUsuario", nuevoseguroVidaPersonal.idUsuario);
   request.input("idTipoSeguro", nuevoseguroVidaPersonal.idTipoCliente);
   request.input("idMoneda", nuevoseguroVidaPersonal.idMoneda);
-  request.input("TipoCliente", nuevoseguroVidaPersonal.idTipoCliente);
+  request.input("idTipoCliente", nuevoseguroVidaPersonal.idTipoCliente);
   request.input("Poliza", nuevoseguroVidaPersonal.Poliza);
   request.input("intermediario", nuevoseguroVidaPersonal.intermediario);
   request.input("Precio", nuevoseguroVidaPersonal.precio);

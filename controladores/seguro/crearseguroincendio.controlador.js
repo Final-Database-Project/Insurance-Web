@@ -12,10 +12,6 @@ exports.crear = async (req, res) => {
   var idTipoCliente = null;
 
 
-    console.log(req.body.Moneda)
-    console.log(req.body.Asegurador)
-    console.log(req.body.TipoCliente)
-
     if(req.body.Moneda == "Peso Dominicano"){
       idMoneda = 1
       
@@ -48,7 +44,6 @@ exports.crear = async (req, res) => {
   const crearSeguroIncendio = new CrearSeguroIncendio({
     idAsegurador: idAsegurador,
     idUsuario: req.user.idUsuario,
-    idTipoSeguro: 4,
     idMoneda: idMoneda,
     idTipoCliente: idTipoCliente,
     Poliza: req.body.Poliza,

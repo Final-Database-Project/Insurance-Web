@@ -20,10 +20,10 @@ const CrearSeguroTransporte = function CrearSeguroTransporte(
 
 CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
   const request = sql.request();
-  request.input("TipoAsegurador", nuevoseguroTransporte.idAsegurador);
+  request.input("idAsegurador", nuevoseguroTransporte.idAsegurador);
   request.input("idUsuario", nuevoseguroTransporte.idUsuario);
-  request.input("moneda", nuevoseguroTransporte.idMoneda);
-  request.input("TipoCliente", nuevoseguroTransporte.idTipoCliente);
+  request.input("idMoneda", nuevoseguroTransporte.idMoneda);
+  request.input("idTipoCliente", nuevoseguroTransporte.idTipoCliente);
   request.input("Poliza", nuevoseguroTransporte.Poliza);
   request.input("Intermediario", nuevoseguroTransporte.intermediario);
   request.input("Precio", nuevoseguroTransporte.precio);
