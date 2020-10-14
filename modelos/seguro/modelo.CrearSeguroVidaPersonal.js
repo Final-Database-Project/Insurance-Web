@@ -5,7 +5,6 @@ const CrearSeguroVidaPersonal = function CrearSeguroVidaPersonal(
 ) {
   this.idAsegurador = crearseguroVidaPersonal.idAsegurador;
   this.idUsuario = crearseguroVidaPersonal.idUsuario;
-  this.idTipoSeguro = crearseguroVidaPersonal.idTipoSeguro;
   this.idMoneda = crearseguroVidaPersonal.idMoneda;
   this.idTipoCliente = crearseguroVidaPersonal.idTipoCliente;
   this.Poliza = crearseguroVidaPersonal.Poliza;

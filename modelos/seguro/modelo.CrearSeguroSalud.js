@@ -35,7 +35,6 @@ CrearSeguroSalud.crear = (nuevoseguroSalud, result) => {
     }
 
     result(null, res)
-    return
 
   });
 };

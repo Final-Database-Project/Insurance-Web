@@ -12,6 +12,7 @@ exports.crear = (req, res) => {
   var idMoneda = null;
   var idAsegurador = null;
   var idTipoCliente = null;
+  var idPlan = null;
   var FechaPago = null;
   var FechaVencimiento = null;
 
@@ -45,6 +46,14 @@ exports.crear = (req, res) => {
 
     }
 
+    if(req.body.Plan == "Gold"){
+      idPlan = 1
+
+    }else if(req.body.Plan == "Premium"){
+      idPlan = 2
+
+    }
+
     if(req.body.FechaPago != '')
     {
       FechaPago = req.body.FechaPago
@@ -65,7 +74,7 @@ exports.crear = (req, res) => {
     precio: req.body.Precio,
     fechaPago: FechaPago,
     fechaVencido: FechaVencimiento,
-    idPlan: req.body.idPlan,
+    idPlan: idPlan,
     Parentesco: req.body.Parentesco,
   });
 
