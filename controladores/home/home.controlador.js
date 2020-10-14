@@ -34,9 +34,9 @@ exports.findByEmail = (Correo, result) => {
 			for (var i = 0; i < data.length; i++)
 			{
 				if (data[i].FechaVencimiento)
-				data[i].FechaVencimiento = moment(data[i].FechaVencimiento).format('DD-MM-YYYY')
+				data[i].FechaVencimiento = moment(data[i].FechaVencimiento).format('MM-DD-YYYY')
 				if(data[i].FechaPago)
-				data[i].FechaPago = moment(data[i].FechaPago).format('DD-MM-YYYY')
+				data[i].FechaPago = moment(data[i].FechaPago).format('MM-DD-YYYY')
 			}
 			result(null,data)
 		});

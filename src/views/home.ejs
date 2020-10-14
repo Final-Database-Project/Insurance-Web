@@ -117,19 +117,20 @@ tr.hide-table-padding td {
             </div>
             <div class="row">
               <div class="col-4">Intermediario:</div>
-              <div class="col-6"><%=data.homedata[i].intermediario%></div>
+              <div class="col-6"><%=data.homedata[i].Intermediario%></div>
             </div>
-              <% if (data.homedata[i].NombreTipoSeguro == 'Vida') {%>
-                
+
+              <% if (data.homedata[i].NombreTipoSeguro == 'Vida') {%> 
             <div class="row">
               <div class="col-4">Profesion:</div>
-              <div class="col-6"><%=data.homedata[i].Profesion%></div>
+              <div class="col-6"><%=data.homedata[i].NombreProfesion%></div>
             </div>
             <div class="row">
               <div class="col-4">Razon de Compra:</div>
               <div class="col-6"><%=data.homedata[i].RazonCompra%></div>
             </div>
             <% } %>
+
             <% if (data.homedata[i].NombreTipoSeguro == 'Medio Transporte') {%>
               <div class="row">
                 <div class="col-4">Tipo de Transporte:</div>
@@ -152,6 +153,7 @@ tr.hide-table-padding td {
                 <div class="col-6"><%=data.homedata[i].Matricula%></div>
               </div>
               <% } %>
+              
               <% if (data.homedata[i].NombreTipoSeguro == 'Salud') {%>
                 <div class="row">
                   <div class="col-4">Parentesco:</div>
