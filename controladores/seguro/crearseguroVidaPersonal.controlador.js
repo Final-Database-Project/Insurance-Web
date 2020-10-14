@@ -12,6 +12,7 @@ exports.crear = (req, res) => {
   var idMoneda = null;
   var idAsegurador = null;
   var idTipoCliente = null;
+  var idProfesion = null;
   var FechaPago = null;
   var FechaVencimiento = null;
 
@@ -48,13 +49,13 @@ exports.crear = (req, res) => {
     }
 
     if(req.body.Profesion == "Carpintero"){
-      idTipoCliente = 1
+      idProfesion = 1
 
     }else if(req.body.Profesion == "Ingeniero"){
-      idTipoCliente = 2
+      idProfesion = 2
 
     }else if(req.body.Profesion == "Negociante"){
-      idTipoCliente = 3
+      idProfesion = 3
 
     }
 
@@ -73,7 +74,6 @@ exports.crear = (req, res) => {
   const crearSeguroVidaPersonal = new CrearSeguroVidaPersonal({
     idAsegurador: idAsegurador,
     idUsuario: req.user.idUsuario,
-    idTipoSeguro: req.body.idTipoSeguro,
     idMoneda: idMoneda,
     idTipoCliente: idTipoCliente,
     Poliza: req.body.Poliza,
@@ -81,9 +81,10 @@ exports.crear = (req, res) => {
     precio: req.body.Precio,
     fechaPago: FechaPago,
     fechaVencido: FechaVencimiento,
-    idProfesion: req.body.idProfesion,
+    idProfesion: idProfesion,
     RazonCompra: req.body.RazonCompra,
   });
+
 
   CrearSeguroVidaPersonal.crear(crearSeguroVidaPersonal, (err, data) => {
     if (err) {

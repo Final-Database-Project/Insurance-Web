@@ -21,7 +21,6 @@ CrearSeguroVidaPersonal.crear = (nuevoseguroVidaPersonal, result) => {
   const request = sql.request();
   request.input("idAsegurador", nuevoseguroVidaPersonal.idAsegurador);
   request.input("idUsuario", nuevoseguroVidaPersonal.idUsuario);
-  request.input("idTipoSeguro", nuevoseguroVidaPersonal.idTipoCliente);
   request.input("idMoneda", nuevoseguroVidaPersonal.idMoneda);
   request.input("idTipoCliente", nuevoseguroVidaPersonal.idTipoCliente);
   request.input("Poliza", nuevoseguroVidaPersonal.Poliza);
@@ -30,22 +29,15 @@ CrearSeguroVidaPersonal.crear = (nuevoseguroVidaPersonal, result) => {
   request.input("FechaPago", nuevoseguroVidaPersonal.fechaPago);
   request.input("FechaVencimiento", nuevoseguroVidaPersonal.fechaVencido);
   request.input("idProfesion", nuevoseguroVidaPersonal.idProfesion);
-  request.input("RazonCompra".nuevoseguroVidaPersonal.RazonCompra);
+  request.input("RazonCompra",nuevoseguroVidaPersonal.RazonCompra);
   request.execute("CrearSeguroVidaPersonal", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
     }
 
-    result(null, {
-      ...nuevoseguroVidaPersonal,
-    });
+    result(null, res)
 
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
   });
 };
 
