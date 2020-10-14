@@ -94,8 +94,6 @@ exports.crear = (req, res) => {
     Año: req.body.Año,
   });
 
-  console.log(idModelo)
-
   CrearSeguroTransporte.crear(crearSeguroTransporte, (err, data) => {
     if (err){
       res.status(500).send({
