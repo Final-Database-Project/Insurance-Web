@@ -16,6 +16,8 @@ exports.crear = (req, res) => {
   var FechaVencimiento = null;
 
 
+
+
     if(req.body.Moneda == "Peso Dominicano"){
       idMoneda = 1
       
@@ -45,6 +47,17 @@ exports.crear = (req, res) => {
 
     }
 
+    if(req.body.Profesion == "Carpintero"){
+      idTipoCliente = 1
+
+    }else if(req.body.Profesion == "Ingeniero"){
+      idTipoCliente = 2
+
+    }else if(req.body.Profesion == "Negociante"){
+      idTipoCliente = 3
+
+    }
+
 
     if(req.body.FechaPago != '')
     {
@@ -68,7 +81,7 @@ exports.crear = (req, res) => {
     precio: req.body.Precio,
     fechaPago: FechaPago,
     fechaVencido: FechaVencimiento,
-    Profesion: req.body.Profesion,
+    idProfesion: req.body.idProfesion,
     RazonCompra: req.body.RazonCompra,
   });
 

@@ -13,7 +13,7 @@ const CrearSeguroVidaPersonal = function CrearSeguroVidaPersonal(
   this.precio = crearseguroVidaPersonal.precio;
   this.fechaPago = crearseguroVidaPersonal.fechaPago;
   this.fechaVencido = crearseguroVidaPersonal.fechaVencido;
-  this.Profesion = crearseguroVidaPersonal.Profesion;
+  this.idProfesion = crearseguroVidaPersonal.idProfesion;
   this.RazonCompra = crearseguroVidaPersonal.RazonCompra;
 };
 
@@ -29,7 +29,7 @@ CrearSeguroVidaPersonal.crear = (nuevoseguroVidaPersonal, result) => {
   request.input("Precio", nuevoseguroVidaPersonal.precio);
   request.input("FechaPago", nuevoseguroVidaPersonal.fechaPago);
   request.input("FechaVencimiento", nuevoseguroVidaPersonal.fechaVencido);
-  request.input("Profesion", nuevoseguroVidaPersonal.Profesion);
+  request.input("idProfesion", nuevoseguroVidaPersonal.idProfesion);
   request.input("RazonCompra".nuevoseguroVidaPersonal.RazonCompra);
   request.execute("CrearSeguroVidaPersonal", (err, res) => {
     if (err) {
