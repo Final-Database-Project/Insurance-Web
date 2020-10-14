@@ -27,6 +27,7 @@ exports.findByEmail = (Correo, result) => {
 			if (!data)
 			{
 				result(null, null)
+				return
 			}
 			
 			

@@ -10,6 +10,7 @@ exports.crear = async (req, res) => {
   var idMoneda = null;
   var idAsegurador = null;
   var idTipoCliente = null;
+  var idTipoIncendio = null;
   var FechaPago = null;
   var FechaVencimiento = null;
 
@@ -42,6 +43,19 @@ exports.crear = async (req, res) => {
 
     }
 
+    if(req.body.TipoIncendio == "Materia Prima"){
+      idTipoIncendio = 1
+
+    }else if(req.body.TipoIncendio == "Edificio"){
+      idTipoIncendio = 2
+    }else if(req.body.TipoIncendio == "Casa"){
+      idTipoIncendio = 3
+
+    }else if(req.body.TipoIncendio == "Maquinaria"){
+      idTipoIncendio = 4
+
+    }
+
 
     if(req.body.FechaPago != '')
     {
@@ -62,7 +76,7 @@ exports.crear = async (req, res) => {
     precio: req.body.Precio,
     fechaPago: FechaPago,
     fechaVencido: FechaVencimiento,
-    TipoIncendio: req.body.TipoIncendio,
+    idTipoIncendio: idTipoIncendio,
     });
 
   console.log("Seguro creado: ", crearSeguroIncendio)

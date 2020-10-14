@@ -1,7 +1,7 @@
 const sql = require('../../src/index');
 exports.getInfo = (result) =>{
 
-    sql.query("Select * from Moneda; Select * from Asegurador; Select * from TipoCliente; Select * from Plann;", (err, data) =>{
+    sql.query("Select * from Moneda; Select * from Asegurador; Select * from TipoCliente; Select * from Plann; Select * from TipoIncendio", (err, data) =>{
         if (err) {
             res.status(500).send({
               message: err.message || "Ha ocurrido un error al crear el seguro.",
