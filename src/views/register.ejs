@@ -1,8 +1,75 @@
-<h1>Register</h1>
-<form action="/register/Personal" method="GET">
-    <button type="submit" id="Personal" name="Personal">Personal</button>
-</form>
-<form action="/register/Empresarial" method="GET">
-    <button type="submit" id="Empresarial" name="Empresarial" style="display: inline;">Empresarial</button>
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand"  href="/login">Home</a>
+          <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <div>
+            <a href="/login" class="mx-5">Login</a>
+          </div>
+          </div>
+        </nav>
+        <h1>Registrar Seguro</h1>
+    </head>
+    <style>
+
+h1{
+  text-align: center;
+  margin-top: 30px;
+}
+div > a:hover{
+  color: white;
+}
+
+div > a{
+  color: white;
+}
+
+table{
+  text-align: justify;
+}
+
+tr.hide-table-padding td {
+  padding: 0;
+  margin: 0;
+}
+
+.expand-button {
+	position: relative;
+}
+
+form > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 25%;
+  margin-left: 25%;
+  }
+
+</style>
+
+        <form action="/register/Personal" method="GET">
+            <button type="submit" id="Personal" name="Personal">Personal</button>
+        </form>
+        <form action="/register/Empresarial" method="GET">
+            <button type="submit" id="Empresarial" name="Empresarial" style="display: inline;">Empresarial</button>
+        </form>
+
+
+
+
+</html>
+
 
