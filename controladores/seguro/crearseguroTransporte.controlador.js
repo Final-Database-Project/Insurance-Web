@@ -8,27 +8,22 @@ exports.crear = (req, res) => {
   }
 
   const crearSeguroTransporte = new CrearSeguroTransporte({
-    idAsegurador: req.body.idAsegurador,
-    idUsuario: req.body.idUsuario,
-    idTipoSeguro: req.body.idTipoSeguro,
-    idMoneda: req.body.idMoneda,
-    idTipoCliente: req.body.idTipoCliente,
-    Poliza: req.body.Poliza,
-    intermediario: req.body.intermediario,
-    precio: req.body.precio,
-    fechaPago: req.body.fechaPago,
-    fechaVencido: req.body.fechaVencido,
-    idMarca: req.body.idMarca,
-    idTipoTransporte: req.body.idTipoTransporte,
-    Matricula: req.body.Matricula,
-    Año: req.body.Año,
+    idAsegurador: req.query.idAsegurador,
+    idUsuario: req.query.idUsuario,
+    idTipoSeguro: req.query.idTipoSeguro,
+    idMoneda: req.query.idMoneda,
+    idTipoCliente: req.query.idTipoCliente,
+    Poliza: req.query.Poliza,
+    intermediario: req.query.intermediario,
+    precio: req.query.precio,
+    fechaPago: req.query.fechaPago,
+    fechaVencido: req.query.fechaVencido,
+    idModelo: req.query.idModelo,
+    idTipoTransporte: req.query.idTipoTransporte,
+    Matricula: req.query.Matricula,
+    Año: req.query.Año,
   });
 
   CrearSeguroTransporte.crear(crearSeguroTransporte, (err, data) => {
-    if (err) {
-      res.status(500).send({
-        message: err.message || "Ha ocurrido un error al crear el seguro.",
-      });
-    } //else res.send(data);
   });
 };
