@@ -19,7 +19,7 @@
           </div>
           </div>
         </nav>
-        <h1>Registrar Seguro</h1>
+        <h1>Tipo de Cuenta</h1>
     </head>
     <style>
 
@@ -61,10 +61,14 @@ form > div{
 </style>
 
         <form action="/register/Personal" method="GET">
-            <button type="submit" id="Personal" name="Personal">Personal</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="Personal" name="Personal">Personal</button>
+            </div>
         </form>
         <form action="/register/Empresarial" method="GET">
-            <button type="submit" id="Empresarial" name="Empresarial" style="display: inline;">Empresarial</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="Empresarial" name="Empresarial">Empresarial</button>
+            </div>
         </form>
 
 
