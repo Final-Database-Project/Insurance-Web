@@ -13,7 +13,7 @@ const CrearSeguroTransporte = function CrearSeguroTransporte(
   this.precio = crearseguroTransporte.precio;
   this.fechaPago = crearseguroTransporte.fechaPago;
   this.fechaVencido = crearseguroTransporte.fechaVencido;
-  this.idMarca = crearseguroTransporte.idMarca;
+  this.idModelo = crearseguroTransporte.idModelo;
   this.idTipoTransporte = crearseguroTransporte.idTipoTransporte;
   this.Matricula = crearseguroTransporte.Matricula;
   this.Año = crearseguroTransporte.Año;
@@ -31,7 +31,7 @@ CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
   request.input("Precio", nuevoseguroTransporte.precio);
   request.input("FechaPago", nuevoseguroTransporte.fechaPago);
   request.input("FechaVencimiento", nuevoseguroTransporte.fechaVencido);
-  request.input("idMarca", nuevoseguroTransporte.idMarca);
+  request.input("idModelo", nuevoseguroTransporte.idModelo);
   request.input("idTipoTransporte", nuevoseguroTransporte.idTipoTransporte);
   request.input("Matricula", nuevoseguroTransporte.Matricula);
   request.input("Año", nuevoseguroTransporte.Año);
