@@ -10,7 +10,8 @@ exports.crear = async (req, res) => {
   var idMoneda = null;
   var idAsegurador = null;
   var idTipoCliente = null;
-
+  var FechaPago = null;
+  var FechaVencimiento = null;
 
     if(req.body.Moneda == "Peso Dominicano"){
       idMoneda = 1
@@ -41,6 +42,16 @@ exports.crear = async (req, res) => {
 
     }
 
+
+    if(req.body.FechaPago != '')
+    {
+      FechaPago = req.body.FechaPago
+    }
+
+    if (req.body.FechaVencimiento != ''){
+      FechaVencimiento = req.body.FechaVencimiento
+    }
+
   const crearSeguroIncendio = new CrearSeguroIncendio({
     idAsegurador: idAsegurador,
     idUsuario: req.user.idUsuario,
@@ -49,8 +60,8 @@ exports.crear = async (req, res) => {
     Poliza: req.body.Poliza,
     intermediario: req.body.Intermediario,
     precio: req.body.Precio,
-    fechaPago: req.body.FechaPago,
-    fechaVencido: req.body.FechaVencimiento,
+    fechaPago: FechaPago,
+    fechaVencido: FechaVencimiento,
     TipoIncendio: req.body.TipoIncendio,
     });
 

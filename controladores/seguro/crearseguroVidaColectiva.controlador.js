@@ -12,6 +12,8 @@ exports.crear = (req, res) => {
   var idMoneda = null;
   var idAsegurador = null;
   var idTipoCliente = null;
+  var FechaPago = null;
+  var FechaVencimiento = null;
 
 
     if(req.body.Moneda == "Peso Dominicano"){
@@ -43,6 +45,17 @@ exports.crear = (req, res) => {
 
     }
 
+    
+    if(req.body.FechaPago != '')
+    {
+      FechaPago = req.body.FechaPago
+    }
+
+    if (req.body.FechaVencimiento != ''){
+      FechaVencimiento = req.body.FechaVencimiento
+    }
+
+
   const crearSeguroVidaColectiva = new CrearSeguroVidaColectiva({
     idAsegurador: idAsegurador,
     idUsuario: req.user.idUsuario,
@@ -50,13 +63,15 @@ exports.crear = (req, res) => {
     idMoneda: idMoneda,
     idTipoCliente: idTipoCliente,
     Poliza: req.body.Poliza,
-    intermediario: req.body.intermediario,
-    precio: req.body.precio,
-    fechaPago: req.body.fechaPago,
-    fechaVencido: req.body.fechaVencido,
+    intermediario: req.body.Intermediario,
+    precio: req.body.Precio,
+    fechaPago: FechaPago,
+    fechaVencido: FechaVencimiento,
     EdadPromedio: req.body.EdadPromedio,
     CantidadAsegurados: req.body.EdadPromedio,
   });
+
+  console.log(crearSeguroVidaColectiva)
 
   CrearSeguroVidaColectiva.crear(crearSeguroVidaColectiva, (err, data) => {
     if (err) {
