@@ -1,31 +1,106 @@
-<h1>Registrar Seguro</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 
-<% if (user.idTipoUsuario == 2) { %>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#"><%= user.Nombre %> <%= user.Apellido %></a>
+          <a class="navbar-brand"  href="/home">Home</a>
+          <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <div>
+            <a href="/Registrar/Seguro" class="mx-5">Registrar Seguro</a>
+            <a href="/logout" class="">Logout</a>
+          </div>
+          </div>
+        </nav>
+        <h1>Registrar Seguro</h1>
+    </head>
+    <style>
 
-<form action="/Registrar/Seguro/Incendio" method="GET">
-    <button type="submit" id="Incendio" name="Incendio">Incendio</button>
-</form>
+h1{
+  text-align: center;
+  margin-top: 30px;
+}
+div > a:hover{
+  color: white;
+}
+
+div > a{
+  color: white;
+}
+
+table{
+  text-align: justify;
+}
+
+tr.hide-table-padding td {
+  padding: 0;
+  margin: 0;
+}
+
+.expand-button {
+	position: relative;
+}
+
+form > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 25%;
+  margin-left: 25%;
+  }
+
+</style>
 
 
-<form action="/Registrar/Seguro/VidaColectiva" method="GET">
-    <button type="submit" id="VidaColectiva" name="VidaColectiva" style="display: inline;">Vida Colectiva</button>
-</form>
+        <% if (user.idTipoUsuario == 2) { %>
 
-<% } %>
-
-<% if (user.idTipoUsuario == 1) { %>
-    <form action="/Registrar/Seguro/Salud" method="GET">
-        <button type="submit" id="Salud" name="Salud" style="display: inline;">Salud</button>
-    </form>
-<form action="/Registrar/Seguro/VidaPersonal" method="GET">
-    <button type="submit" id="VidaPersonal" name="VidaPersonal" style="display: inline;">Vida Personal</button>
-</form>
-
-<% } %>
+        <form action="/Registrar/Seguro/Incendio" method="GET">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="Incendio" name="Incendio">Incendio</button>
+            </div>
+        </form>
 
 
-<form action="/Registrar/Seguro/Transporte" method="GET">
-    <button type="submit" id="Transporte" name="Transporte" style="display: inline;">Transporte</button>
-</form>
+        <form action="/Registrar/Seguro/VidaColectiva" method="GET">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="VidaColectiva" name="VidaColectiva" style="display: inline;">Vida Colectiva</button>
+            </div>
+        </form>
 
+        
+        <% } %>
+
+        <% if (user.idTipoUsuario == 1) { %>
+        <form action="/Registrar/Seguro/Salud" method="GET">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="Salud" name="Salud" style="display: inline;">Salud</button>
+            </div>
+        </form>
+
+        <form action="/Registrar/Seguro/VidaPersonal" method="GET">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="VidaPersonal" name="VidaPersonal" style="display: inline;">Vida Personal</button>
+            </div>
+        </form>
+
+        <% } %>
+
+
+        <form action="/Registrar/Seguro/Transporte" method="GET">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="Transporte" name="Transporte" style="display: inline;">Transporte</button>
+            </div>
+        </form>
+
+</html>
