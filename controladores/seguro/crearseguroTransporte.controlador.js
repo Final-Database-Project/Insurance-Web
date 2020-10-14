@@ -9,6 +9,8 @@ exports.crear = (req, res) => {
   var idMoneda = null;
   var idAsegurador = null;
   var idTipoCliente = null;
+  var idTipoTransporte = null;
+  var idModelo = null;
   var FechaPago = null;
   var FechaVencimiento = null;
 
@@ -42,6 +44,29 @@ exports.crear = (req, res) => {
 
     }
 
+    if(req.body.TipoTransporte == "Automovil"){
+      idTipoTransporte = 1
+
+    }else if(req.body.TipoTransporte == "Camion"){
+      idTipoTransporte = 2
+
+    }
+
+    if(req.body.Modelo == "MBZ Clase A, Mercedes Benz"){
+      idModelo = 1
+
+    }else if(req.body.Modelo == "MBZ AMG, Mercedes Benz"){
+      idModelo = 2
+
+    }else if(req.body.Modelo == "Camry, Toyota"){
+      idModelo = 3
+
+    }else if(req.body.Modelo == "Rav4, Toyota"){
+      idModelo = 4
+
+    }
+
+
     if(req.body.FechaPago != '')
     {
       FechaPago = req.body.FechaPago
@@ -63,11 +88,13 @@ exports.crear = (req, res) => {
     precio: req.body.Precio,
     fechaPago: FechaPago,
     fechaVencido: FechaVencimiento,
-    idModelo: req.body.idModelo,
-    idTipoTransporte: req.body.idTipoTransporte,
+    idModelo: idModelo,
+    idTipoTransporte: idTipoTransporte,
     Matricula: req.body.Matricula,
     Año: req.body.Año,
   });
+
+  console.log(idModelo)
 
   CrearSeguroTransporte.crear(crearSeguroTransporte, (err, data) => {
     if (err){
