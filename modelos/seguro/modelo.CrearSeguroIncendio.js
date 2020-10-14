@@ -10,7 +10,7 @@ const CrearSeguroIncendio = function CrearSeguroIncendio(crearseguroIncendio) {
   this.precio = crearseguroIncendio.precio;
   this.fechaPago = crearseguroIncendio.fechaPago;
   this.fechaVencido = crearseguroIncendio.fechaVencido;
-  this.TipoIncendio = crearseguroIncendio.TipoIncendio;
+  this.idTipoIncendio = crearseguroIncendio.idTipoIncendio;
 };
 
 CrearSeguroIncendio.crear = (nuevoseguroincendio, result) => {
@@ -24,7 +24,7 @@ CrearSeguroIncendio.crear = (nuevoseguroincendio, result) => {
   request.input("Precio", nuevoseguroincendio.precio);
   request.input("FechaPago", nuevoseguroincendio.fechaPago);
   request.input("FechaVencimiento", nuevoseguroincendio.fechaVencido);
-  request.input("TipoIncendio", nuevoseguroincendio.TipoIncendio);
+  request.input("idTipoIncendio", nuevoseguroincendio.idTipoIncendio);
   request.execute("CrearSeguroIncendio", (err, res) => {
     if (err) {
       console.log("error: ", err);
