@@ -39,17 +39,11 @@ CrearSeguroTransporte.crear = (nuevoseguroTransporte, result) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
-    }
-
-    result(null, {
-      ...nuevoseguroTransporte,
-    });
-
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
       return;
     }
+
+    result(null,res)
+
   });
 };
 

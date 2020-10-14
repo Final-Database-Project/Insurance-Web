@@ -25,5 +25,19 @@ exports.crear = (req, res) => {
   });
 
   CrearSeguroTransporte.crear(crearSeguroTransporte, (err, data) => {
+    if (err){
+      res.status(500).send({
+        messaage:
+          err.message ||
+          "Ha ocurrido un error al intentar crear al usuario personal",
+      })
+    }
+
+    console.log("redirecting success...")
+    res.redirect('/home')
+    return;
+
   });
+
+
 };
