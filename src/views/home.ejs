@@ -14,6 +14,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <a class="navbar-brand" href="#"><%= data.user.Nombre %> <%= data.user.Apellido %> </a>
+      <a class="navbar-brand"  href="/home">Home</a>
       <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,6 +30,9 @@
 
 <style>
  
+.hide-table-paddding{
+  text-align: justify;
+}
 a:hover{
   color: white;
 }
@@ -38,6 +42,8 @@ a{
 
 table{
   text-align: justify;
+  align-content: center;
+  text-align: center;
 }
 
 tr.hide-table-padding td {
@@ -95,7 +101,8 @@ tr.hide-table-padding td {
             <td scope="row" class="accordion-toggle collapsed " data-toggle="collapse"  href="#collapse<%=i%>"><%= data.homedata[i].FechaVencimiento %></td>  
           <% } %>
           <td>
-          <a class="btn btn-success edit"  href="../books/edit/<%=data.homedata[i].idSeguro%>" data-toggle="modal" data-target="#MyModal<%=i%>"  data-id=<%=data.homedata[i].idSeguro%>>Edit</a>
+          <a class="btn btn-success edit"  href="../books/edit/" data-toggle="modal" data-target="#MyModal<%=i%>"  data-id=<%=data.homedata[i].idSeguro%>>Editar</a>
+          <a class="btn btn-danger delete" id="<%=data.homedata[i].idSeguro%>" onclick="AreYouSure(this.id)">Eliminar</a>
           </td>
 
           
@@ -161,6 +168,12 @@ tr.hide-table-padding td {
                   <div class="col-6"><%=data.homedata[i].CantidadAsegurados%></div>
                 </div>
               <% } %>
+              <% if (data.homedata[i].NombreTipoSeguro == 'Incendio') {%>
+                <div class="row">
+                  <div class="col-4">Tipo de Incendio:</div>
+                  <div class="col-6"><%=data.homedata[i].TipoIncendio%></div>
+                </div>
+              <% } %>
 
           </div>
           </td>
@@ -208,6 +221,15 @@ tr.hide-table-padding td {
 <% } %>
 
 
+<script>
+  function AreYouSure(id){ 
+    console.log(id)
+    var r = confirm("Press a button!")
+    if (r == true) {
+      window.location.href = 'Seguro/Eliminar/' + id
+    } 
+  } 
+</script>
 
 
 
