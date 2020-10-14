@@ -168,7 +168,7 @@ Home.findByEmail = (Correo, result) => {
 						if (res.rowsAffected == 0) {
 							result({ kind: "no encontrado" }, null);
 							return;
-						}
+						}	
 						result(null, data.recordsets[0]);
 					}
 				);
