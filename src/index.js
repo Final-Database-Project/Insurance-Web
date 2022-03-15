@@ -2,10 +2,10 @@ const sql = require("mssql");
 
 // Create connection to database
 const config = {
-	user: "grupo9", // update me
-	password: "mesa9basededato.", // update me
-	server: "finalprojectdb1.database.windows.net", // update me
-	database: "FinalProjectDB-1", //update me
+	user: "CHANGED", // update me
+	password: "CHANGED.", // update me
+	server: "CHANGED", // update me
+	database: "CHANGED", //update me
 };
 
 const connection = new sql.ConnectionPool(config);
